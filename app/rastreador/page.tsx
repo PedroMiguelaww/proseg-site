@@ -27,7 +27,7 @@ export default function Rastreador() {
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2.5 bg-white/10 text-white px-5 py-2.5 rounded-full text-sm font-medium border border-white/10 backdrop-blur-sm">
                 <Smartphone className="w-5 h-5 text-brand-accent" aria-hidden="true" />
-                <span>Tecnologia e Monitoramento em Tempo Real</span>
+                <span>Tecnologia e monitoramento em tempo real</span>
               </div>
 
               <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
@@ -35,7 +35,7 @@ export default function Rastreador() {
               </h1>
 
               <p className="text-xl text-gray-300 max-w-2xl font-normal leading-relaxed">
-                Um rastreador automotivo possui inúmeras vantagens para cuidar cada vez mais da sua segurança, do seu carro e da sua tranquilidade em Campina Grande e região.
+                Mais segurança para você e seu veículo, com localização em tempo real pelo celular e monitoramento 24h.
               </p>
 
               <div className="pt-4">
@@ -46,7 +46,7 @@ export default function Rastreador() {
                   className="inline-flex items-center gap-3 bg-brand-light text-brand-blue hover:bg-white px-9 py-5 rounded-2xl font-bold shadow-xl transition-all duration-300 hover:scale-105 text-lg"
                 >
                   <PhoneCall className="w-6 h-6 text-brand-dark" aria-hidden="true" />
-                  <span>Quero Instalar o Rastreador</span>
+                  <span>Quero instalar o rastreador</span>
                 </a>
               </div>
             </div>
@@ -58,13 +58,13 @@ export default function Rastreador() {
                   <Navigation className="w-10 h-10 animate-pulse" aria-hidden="true" />
                 </div>
                 <div className="space-y-2">
-                  <h2 className="text-2xl font-bold text-white">Monitoramento 24/7</h2>
+                  <h2 className="text-2xl font-bold text-white">Monitoramento 24h</h2>
                   <p className="text-sm text-gray-300 leading-relaxed">
-                    Acompanhe rotas, histórico de trajetos e localização exata direto pela tela do seu celular.
+                    Acompanhe rotas, histórico de trajetos e a localização do veículo direto pelo celular.
                   </p>
                 </div>
                 <div className="bg-brand-blue text-brand-accent py-3.5 px-4 rounded-xl font-extrabold text-xs tracking-wider border border-brand-dark">
-                  COBERTURA SATELITAL NACIONAL
+                  LOCALIZAÇÃO EM TEMPO REAL
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function Rastreador() {
           <CtaWhatsApp
             title="Proteja seu veículo hoje mesmo com o rastreador"
             text="Fale com nossa equipe e tire suas dúvidas sobre prazos e instalação em Campina Grande."
-            buttonLabel="Solicitar Cotação do Rastreador"
+            buttonLabel="Solicitar cotação do rastreador"
             message={MENSAGEM}
           />
 

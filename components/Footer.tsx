@@ -31,7 +31,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Proteção veicular completa e assistência 24h para você rodar com total tranquilidade em Campina Grande e região.
+              Proteção veicular completa e assistência 24h para você rodar sem preocupação em Campina Grande e região.
             </p>
           </div>
 
@@ -75,7 +75,7 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-brand-light shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Suporte e Assistência: 24h por dia</span>
+                <span>Suporte e assistência 24h</span>
               </div>
             </div>
           </div>
@@ -86,10 +86,10 @@ export default function Footer() {
             <div className="bg-brand-dark/40 border border-brand-light/10 p-4 rounded-2xl space-y-2">
               <div className="flex items-center gap-2 text-brand-light font-semibold text-sm">
                 <ShieldCheck className="w-5 h-5" aria-hidden="true" />
-                <span>100% Garantido</span>
+                <span>Transparência</span>
               </div>
               <p className="text-xs text-gray-300 leading-relaxed">
-                Associação de proteção veicular amparada pela lei e regulamentada para sua total segurança.
+                Associação de proteção veicular com regras claras e atendimento próximo.
               </p>
             </div>
           </div>

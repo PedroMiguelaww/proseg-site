@@ -13,81 +13,81 @@ export const PLANOS_CARROS: Plano[] = [
     tagline: "Proteção essencial com excelente custo-benefício",
     popular: false,
     recursos: [
-      "Roubo | Furto",
+      "Roubo e furto",
       "Colisão",
       "Perda total",
       "Incêndio",
-      "Sem perfil de condutor"
+      "Sem análise de perfil do motorista"
     ]
   },
   {
     nome: "Plano Ouro",
-    tagline: "Cobertura completa com máxima proteção e assistência estendida",
+    tagline: "Proteção ampla com assistência 24h",
     popular: true,
     recursos: [
-      "Roubo | Furto",
+      "Roubo e furto",
       "Colisão",
       "Perda total",
       "Incêndio",
-      "Sem perfil de condutor",
-      "Borracheiro",
+      "Sem análise de perfil do motorista",
+      "Troca de pneu",
       "Reboque",
       "Chaveiro",
-      "Danos a terceiro",
-      "Hospedagem caso de batida",
+      "Danos a terceiros",
+      "Hospedagem em caso de colisão",
       "Pane seca",
-      "Pane elétrica, mecânica",
-      "Assistência 24h 0800"
+      "Pane elétrica ou mecânica",
+      "Assistência 24h pelo 0800"
     ]
   },
   {
     nome: "Plano Diamante",
-    tagline: "O nível máximo de segurança, comodidade e exclusividade",
+    tagline: "Nosso plano mais completo, com carro reserva e até 100% da FIPE",
     popular: false,
     recursos: [
       "Tudo do Plano Ouro",
-      "Danos da natureza",
+      "Fenômenos da natureza",
       "Carro reserva",
       "Moto reserva",
       "Até 100% da FIPE",
       "Rastreamento",
-      "Vidros, faróis, retrovisores"
+      "Vidros, faróis e retrovisores"
     ]
   }
 ];
 
 export const PLANOS_MOTOS: Plano[] = [
   {
-    nome: "Plano Prata (Moto)",
+    nome: "Plano Prata Moto",
     tagline: "Proteção essencial e sob medida para sua motocicleta",
     popular: false,
     recursos: [
-      "Roubo | Furto",
+      "Roubo e furto",
       "Colisão",
       "Perda total",
       "Incêndio",
-      "Sem perfil de condutor",
+      "Sem análise de perfil do motorista",
       "Assistência 24h",
       "Reboque"
     ]
   },
   {
-    nome: "Plano Ouro (Moto)",
+    nome: "Plano Ouro Moto",
     tagline: "Cobertura completa com assistência estendida para sua moto",
     popular: true,
     recursos: [
-      "Roubo | Furto",
+      "Roubo e furto",
       "Colisão",
       "Perda total",
       "Incêndio",
-      "Sem perfil de condutor",
-      "Borracheiro",
+      "Sem análise de perfil do motorista",
+      "Troca de pneu",
       "Chaveiro",
-      "Danos a terceiro",
+      "Danos a terceiros",
       "Reboque",
       "Pane seca",
-      "Pane elétrica / mecânica",
-      "Assistência 24h 0800"
+      "Pane elétrica ou mecânica",
+      "Assistência 24h pelo 0800"
     ]
   }
 ];
@@ -96,17 +96,17 @@ export const PLANOS_MOTOS: Plano[] = [
 export const VANTAGENS_RASTREADOR: { title: string; desc: string; icon: LucideIcon }[] = [
   {
     title: "Recuperação em caso de roubo",
-    desc: "Nos casos em que seu carro for roubado, é possível saber a localização imediatamente e iniciar o processo de recuperação. As chances de reaver o veículo chegam a cerca de 98%.",
+    desc: "Se o seu veículo for roubado, você sabe na hora onde ele está e a busca começa imediatamente. Com o rastreador, as chances de recuperação são muito maiores.",
     icon: Lock
   },
   {
     title: "Segurança contra sequestro",
-    desc: "Permite a localização ágil do veículo em situações de risco, tornando possível que o carro seja encontrado rapidamente pelas autoridades competentes.",
+    desc: "Em situações de risco, o veículo pode ser localizado rapidamente, o que agiliza a ação das autoridades.",
     icon: Share2
   },
   {
     title: "Preço acessível e monitoramento 24h",
-    desc: "Instalação e monitoramento com excelente custo-benefício. Funciona 24 horas por dia e você acompanha tudo direto do seu smartphone.",
+    desc: "Instalação e monitoramento com excelente custo-benefício. Funciona 24h e você acompanha tudo pelo celular.",
     icon: Clock
   }
 ];

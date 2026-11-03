@@ -14,29 +14,29 @@ import CtaWhatsApp from "@/components/CtaWhatsApp";
 export const metadata: Metadata = {
   title: "Quem Somos",
   description:
-    "Conheça a Proseg, associação de proteção veicular de Campina Grande - PB: atendimento local, sem burocracia e assistência 24 horas.",
+    "Conheça a Proseg, associação de proteção veicular de Campina Grande - PB: atendimento local, sem burocracia e assistência 24h.",
 };
 
 const DIFERENCIAIS = [
   "Contratação rápida, prática e sem análise de perfil",
-  "Suporte humanizado e assistência 24 horas",
-  "Compromisso total com a segurança do seu patrimônio",
+  "Atendimento humano e assistência 24h",
+  "Compromisso com a segurança do seu patrimônio",
 ];
 
 const PILARES = [
   {
-    title: "Segurança Garantida",
+    title: "Coberturas completas",
     desc: "Coberturas completas contra roubo, furto, colisão, incêndio e muito mais para carros e motos.",
     icon: ShieldCheck,
   },
   {
-    title: "Atendimento Local",
-    desc: "Atendimento especializado estruturado para dar suporte ágil diretamente em Campina Grande-PB.",
+    title: "Atendimento local",
+    desc: "Atendimento rápido e especializado, direto de Campina Grande - PB.",
     icon: MapPin,
   },
   {
-    title: "Parceria de Confiança",
-    desc: "Relações transparentes e focadas na satisfação e fidelidade de cada associado da família Proseg.",
+    title: "Parceria de confiança",
+    desc: "Relações transparentes, focadas na satisfação de cada associado da família Proseg.",
     icon: HeartHandshake,
   },
 ];
@@ -51,7 +51,7 @@ export default function QuemSomos() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center gap-2.5 bg-white/10 text-white px-5 py-2.5 rounded-full text-sm font-medium border border-white/10 backdrop-blur-sm">
             <Users className="w-5 h-5 text-brand-accent" aria-hidden="true" />
-            <span>Nossa História e Compromisso</span>
+            <span>Nosso compromisso</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
@@ -59,7 +59,7 @@ export default function QuemSomos() {
           </h1>
 
           <p className="text-xl text-gray-300 max-w-2xl mx-auto font-normal leading-relaxed">
-            Baseada em Campina Grande - PB, a Proseg nasceu com o propósito de oferecer tranquilidade e segurança veicular sem burocracia.
+            Com sede em Campina Grande - PB, a Proseg nasceu para oferecer proteção veicular sem burocracia.
           </p>
         </div>
       </section>
@@ -71,10 +71,10 @@ export default function QuemSomos() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
             <div className="lg:col-span-6 space-y-6">
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                Tradição e confiança em Campina Grande e região
+                Confiança e atendimento próximo
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                A Proseg se destaca no mercado de proteção veicular pela seriedade com que trata cada associado. Trabalhamos com foco na agilidade de atendimento, sem consultas ao SPC/Serasa e sem burocracias desnecessárias na hora de contratar.
+                A Proseg se destaca no mercado de proteção veicular pela seriedade com que trata cada associado. Trabalhamos com foco na agilidade do atendimento, sem consultas ao SPC/Serasa e sem burocracias desnecessárias na hora de contratar.
               </p>
               <ul className="space-y-3 pt-2">
                 {DIFERENCIAIS.map((texto) => (
@@ -90,9 +90,9 @@ export default function QuemSomos() {
               <div className="w-16 h-16 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center">
                 <Award className="w-8 h-8" aria-hidden="true" />
               </div>
-              <h3 className="text-2xl font-bold">Nossa Missão</h3>
+              <h3 className="text-2xl font-bold">Nossa missão</h3>
               <p className="text-gray-600 leading-relaxed">
-                Garantir que todo motorista tenha acesso a uma proteção veicular justa, de alta qualidade e com excelente custo-benefício, proporcionando total paz de espírito ao rodar pelas ruas e estradas.
+                Garantir que todo motorista tenha acesso a uma proteção veicular justa, de qualidade e com bom custo-benefício, para dirigir tranquilo pelas ruas e estradas.
               </p>
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function QuemSomos() {
           {/* CTA Final */}
           <CtaWhatsApp
             title="Faça parte da nossa família de associados"
-            text="Venha conhecer nossos planos e garanta a proteção que o seu veículo merece hoje mesmo."
+            text="Conheça nossos planos e garanta hoje mesmo a proteção que o seu veículo merece."
             buttonLabel="Falar com a Proseg no WhatsApp"
             message="Olá, vim pelo site da Proseg e gostaria de saber mais sobre a empresa"
           />

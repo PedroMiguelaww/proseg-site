@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { whatsappLink } from "@/lib/site";
+import { SITE, whatsappLink } from "@/lib/site";
 import { VANTAGENS_RASTREADOR } from "@/lib/content";
 import bannerHero from "@/public/images/bannerHero.webp";
 import reboque from "@/public/images/reboque.webp";
@@ -25,23 +25,23 @@ import {
 const PASSOS = [
   {
     title: "Chame no WhatsApp e informe seu veículo",
-    desc: "Você não gasta nem um minutinho para fazer sua cotação aqui. Chame no WhatsApp.",
+    desc: "Em poucos minutos você recebe sua cotação, sem sair de casa.",
     icon: FileText
   },
   {
-    title: "Escolha seu plano e produtos adicionais",
-    desc: "Agora que a gente sabe qual veículo você tem, escolha o melhor plano para ele.",
+    title: "Escolha o seu plano",
+    desc: "Com os dados do seu veículo, mostramos os planos disponíveis e você escolhe o que mais combina com você.",
     icon: CheckSquare
   },
   {
-    title: "Faça sua vistoria e assine seu contrato",
-    desc: "Pronto! Agora vamos entrar em contato com você para finalizar sua proteção.",
+    title: "Faça a vistoria e assine o contrato",
+    desc: "Nossa equipe agenda a vistoria e envia o contrato. Depois de assinar, é só rodar tranquilo.",
     icon: ClipboardCheck
   }
 ];
 
 const COBERTURAS = [
-  { title: "Roubo e Furto", icon: Shield },
+  { title: "Roubo e furto", icon: Shield },
   { title: "Colisão", icon: Car },
   { title: "Perda total", icon: AlertTriangle },
   { title: "Incêndio", icon: Flame },
@@ -50,10 +50,10 @@ const COBERTURAS = [
 ];
 
 const ASSISTENCIAS = [
-  "Reboque em todo Brasil",
+  "Reboque em todo o Brasil",
   "Auxílio na troca de pneu furado",
   "Auxílio em pane elétrica",
-  "Chaveiro auto",
+  "Chaveiro automotivo",
   "Auxílio em pane mecânica",
   "Transporte emergencial",
   "Auxílio na falta de combustível"
@@ -75,15 +75,15 @@ export default function Home() {
             <div className="lg:col-span-7 space-y-8">
               <div className="inline-flex items-center gap-2.5 bg-white/10 text-white px-5 py-2.5 rounded-full text-sm font-medium tracking-wide border border-white/10 backdrop-blur-sm">
                 <ShieldCheck className="w-5 h-5 text-brand-accent" />
-                <span>Proteção Veicular em Campina Grande</span>
+                <span>Proteção veicular em Campina Grande</span>
               </div>
-              
+
               <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1]">
                 Fique tranquilo com seu veículo <span className="text-brand-accent">bem protegido.</span>
               </h1>
-              
+
               <p className="text-xl text-gray-300 max-w-2xl font-normal leading-relaxed">
-                Cobertura de até 100% FIPE e assistência 24H em todo Brasil para você rodar com total tranquilidade.
+                Cobertura de até 100% da tabela FIPE e assistência 24h em todo o Brasil, para você rodar sem preocupação.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-5 pt-2">
@@ -101,7 +101,7 @@ export default function Home() {
                   href="/protecao-veicular"
                   className="border-2 border-white/20 hover:border-white hover:bg-white/10 text-white px-9 py-5 rounded-2xl font-bold text-center transition-all duration-300 flex items-center justify-center hover:scale-105 text-lg backdrop-blur-sm"
                 >
-                  Conhecer Planos
+                  Conhecer planos
                 </Link>
               </div>
 
@@ -113,11 +113,11 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-brand-accent shrink-0" />
-                  <span className="font-medium">Sem Consulta SPC</span>
+                  <span className="font-medium">Sem consulta ao SPC/Serasa</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-brand-accent shrink-0" />
-                  <span className="font-medium">Cobertura Nacional</span>
+                  <span className="font-medium">Cobertura nacional</span>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function Home() {
                 <div className="relative w-full h-[420px] rounded-[2rem] overflow-hidden shadow-inner">
                   <Image
                     src={bannerHero}
-                    alt="Sua Proteção Garantida"
+                    alt="Motorista sorrindo ao volante"
                     fill
                     preload
                     sizes="(min-width: 1024px) 448px, 90vw"
@@ -137,8 +137,8 @@ export default function Home() {
                   />
                 </div>
                 <div className="mt-4 text-center px-2 pb-2">
-                  <h3 className="text-xl font-bold text-white mb-1">Sua Proteção Garantida</h3>
-                  <p className="text-sm text-gray-300">Atendimento ágil e desburocratizado em Campina Grande - PB</p>
+                  <h3 className="text-xl font-bold text-white mb-1">Proteção sem complicação</h3>
+                  <p className="text-sm text-gray-300">Atendimento ágil e sem burocracia em Campina Grande - PB</p>
                 </div>
               </div>
             </div>
@@ -152,10 +152,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-              Se associar é muito fácil
+              É muito fácil se associar
             </h2>
             <p className="text-gray-600 text-xl font-normal">
-              Sem avaliação de perfil, sem consulta ao SPC, sem burocracia.
+              Sem análise de perfil, sem consulta ao SPC/Serasa, sem burocracia.
             </p>
           </div>
 
@@ -181,7 +181,7 @@ export default function Home() {
               Proteção veicular completa
             </h2>
             <p className="text-gray-600 text-xl font-normal">
-              Seu veículo fica bem protegido se algo ruim acontecer.
+              Seu veículo protegido contra os imprevistos do dia a dia. As coberturas variam conforme o plano escolhido.
             </p>
           </div>
 
@@ -205,9 +205,9 @@ export default function Home() {
               <div className="lg:col-span-7 space-y-8">
                 <div className="inline-flex items-center gap-2.5 bg-white/10 text-white px-5 py-2.5 rounded-full text-sm font-semibold border border-white/10">
                   <Wrench className="w-5 h-5 text-brand-accent" />
-                  <span>Suporte Contínuo</span>
+                  <span>Suporte contínuo</span>
                 </div>
-                <h3 className="text-3xl sm:text-4xl font-extrabold">Assistência 24 horas</h3>
+                <h3 className="text-3xl sm:text-4xl font-extrabold">Assistência 24h</h3>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-base text-gray-200">
                   {ASSISTENCIAS.map((text, i) => (
@@ -225,24 +225,22 @@ export default function Home() {
                   <div className="relative w-full h-[320px] rounded-2xl overflow-hidden shadow-inner bg-brand-deep">
                     <Image
                       src={reboque}
-                      alt="Assistência e Reboque 24h"
+                      alt="Guincho da assistência 24h"
                       fill
                       sizes="(min-width: 1024px) 448px, 90vw"
                       className="object-contain p-2"
                     />
                   </div>
                   <div className="mt-4 text-center px-2">
-                    <h4 className="font-bold text-lg text-white mb-1">Socorro Rápido</h4>
+                    <h4 className="font-bold text-lg text-white mb-1">Socorro rápido</h4>
                     <p className="text-xs text-gray-300 mb-4">
-                      Guincho e suporte 24 horas por dia à sua disposição.
+                      Guincho e suporte 24h à sua disposição.
                     </p>
                     <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={`tel:${SITE.tollFree}`}
                       className="block w-full bg-brand-light text-brand-blue py-3.5 rounded-xl font-bold text-sm text-center hover:bg-white transition-all duration-300 shadow-lg"
                     >
-                      Acionar Assistência
+                      Acionar assistência: {SITE.tollFreeDisplay}
                     </a>
                   </div>
                 </div>
@@ -263,13 +261,13 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2.5 bg-brand-dark/10 text-brand-dark px-5 py-2.5 rounded-full text-sm font-semibold border border-brand-dark/10">
                   <Smartphone className="w-5 h-5 text-brand-dark" />
-                  <span>Tecnologia e Monitoramento</span>
+                  <span>Tecnologia e monitoramento</span>
                 </div>
                 <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-                  Rastreador
+                  Rastreador veicular
                 </h2>
                 <p className="text-gray-600 text-xl leading-relaxed font-normal">
-                  Um rastreador automotivo possui inúmeras vantagens e vale a pena conhecê-las para cuidar cada vez mais de sua segurança e do seu carro.
+                  Mais segurança para você e seu veículo, com localização em tempo real pelo celular.
                 </p>
               </div>
 
@@ -311,19 +309,19 @@ export default function Home() {
                 <div className="relative w-full h-[520px] my-2">
                   <Image
                     src={celular}
-                    alt="Aplicativo de Rastreamento no Celular"
+                    alt="Aplicativo de rastreamento no celular"
                     fill
                     sizes="(min-width: 1024px) 400px, 90vw"
                     className="object-contain"
                   />
                 </div>
                 <div className="mt-4 text-center w-full">
-                  <h3 className="text-xl font-bold text-brand-blue mb-1">App no seu Celular</h3>
+                  <h3 className="text-xl font-bold text-brand-blue mb-1">App no seu celular</h3>
                   <p className="text-sm text-gray-600 mb-5">
-                    Acompanhe a rota, histórico de trajeto e localização em tempo real na palma da sua mão.
+                    Acompanhe a rota, o histórico de trajetos e a localização em tempo real, na palma da sua mão.
                   </p>
                   <div className="bg-brand-blue text-white py-3.5 px-4 rounded-xl font-bold text-xs tracking-wider shadow-md w-full text-center">
-                    MONITORAMENTO SATELITAL 24/7
+                    MONITORAMENTO 24H
                   </div>
                 </div>
               </div>
