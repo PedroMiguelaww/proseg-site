@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ShieldCheck } from "lucide-react";
-import PageHeader from "@/components/PageHeader";
 import PlanosTabs from "@/components/PlanosTabs";
 import CtaWhatsApp from "@/components/CtaWhatsApp";
 
@@ -13,7 +12,6 @@ export const metadata: Metadata = {
 export default function ProtecaoVeicular() {
   return (
     <div className="bg-brand-blue text-white">
-      <PageHeader label="Proseg Proteção Veicular" />
 
       <PlanosTabs
         intro={

@@ -8,6 +8,7 @@
   --color-brand-accent: #4da8da;
   --color-brand-mid: #0d2e54;
   --color-brand-deep: #071930;
+  --color-whatsapp: #25D366;
 }
 
 /* Configurações globais básicas */
@@ -19,4 +20,67 @@ body {
   font-family: var(--font-montserrat), sans-serif;
   background-color: #ffffff;
   color: #333333;
+}
+
+/* Animação de entrada (components/Reveal.tsx).
+   Só esconde quando o JS está ativo (classe "js" no <html>). */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Entrada do topo da página: CSS puro, roda no carregamento sem depender do JS */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+
+/* Entrada do botão flutuante de WhatsApp */
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-float-in {
+  animation: float-in 0.4s ease-out 0.8s both;
+}
+
+/* Respeita quem pediu menos movimento no sistema */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-float-in,
+  .animate-fade-up {
+    animation: none;
+  }
 }

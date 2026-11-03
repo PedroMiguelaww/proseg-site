@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SITE, whatsappLink } from "@/lib/site";
+import Reveal from "@/components/Reveal";
 import { VANTAGENS_RASTREADOR } from "@/lib/content";
 import bannerHero from "@/public/images/bannerHero.webp";
 import reboque from "@/public/images/reboque.webp";
@@ -72,7 +73,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Texto Principal */}
-            <div className="lg:col-span-7 space-y-8">
+            <div className="lg:col-span-7 space-y-8 animate-fade-up">
               <div className="inline-flex items-center gap-2.5 bg-white/10 text-white px-5 py-2.5 rounded-full text-sm font-medium tracking-wide border border-white/10 backdrop-blur-sm">
                 <ShieldCheck className="w-5 h-5 text-brand-accent" />
                 <span>Proteção veicular em Campina Grande</span>
@@ -91,15 +92,15 @@ export default function Home() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-brand-light text-brand-blue hover:bg-white px-9 py-5 rounded-2xl font-bold text-center flex items-center justify-center gap-3 transition-all duration-300 shadow-xl hover:scale-105 text-lg"
+                  className="bg-brand-light text-brand-blue hover:bg-white px-9 py-5 rounded-2xl font-bold text-center flex items-center justify-center gap-3 transition-all duration-300 shadow-xl text-lg"
                 >
-                  <PhoneCall className="w-6 h-6 animate-pulse text-brand-dark" />
+                  <PhoneCall className="w-6 h-6 text-brand-dark" />
                   <span>Falar no WhatsApp</span>
                 </a>
                 
                 <Link
                   href="/protecao-veicular"
-                  className="border-2 border-white/20 hover:border-white hover:bg-white/10 text-white px-9 py-5 rounded-2xl font-bold text-center transition-all duration-300 flex items-center justify-center hover:scale-105 text-lg backdrop-blur-sm"
+                  className="border-2 border-white/20 hover:border-white hover:bg-white/10 text-white px-9 py-5 rounded-2xl font-bold text-center transition-all duration-300 flex items-center justify-center text-lg backdrop-blur-sm"
                 >
                   Conhecer planos
                 </Link>
@@ -123,7 +124,7 @@ export default function Home() {
             </div>
 
             {/* Imagem do Hero */}
-            <div className="lg:col-span-5 flex flex-col items-center">
+            <div className="lg:col-span-5 flex flex-col items-center animate-fade-up [animation-delay:150ms]">
               <div className="w-full max-w-md bg-white/5 p-4 rounded-[2.5rem] border border-white/15 shadow-2xl backdrop-blur-sm">
                 <div className="relative w-full h-[420px] rounded-[2rem] overflow-hidden shadow-inner">
                   <Image
@@ -150,24 +151,26 @@ export default function Home() {
       {/* 2. Seção: Se associar é muito fácil */}
       <section className="py-28 bg-gray-50 text-brand-blue">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+          <Reveal className="text-center max-w-3xl mx-auto mb-20 space-y-4">
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
               É muito fácil se associar
             </h2>
             <p className="text-gray-600 text-xl font-normal">
               Sem análise de perfil, sem consulta ao SPC/Serasa, sem burocracia.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {PASSOS.map(({ title, desc, icon: Icon }) => (
-              <div key={title} className="group bg-white p-10 rounded-3xl shadow-sm border border-gray-200/80 flex flex-col items-center text-center space-y-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-dark/40">
-                <div className="w-20 h-20 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center transition-all duration-300 group-hover:bg-brand-dark group-hover:text-white group-hover:scale-110 shadow-md">
-                  <Icon className="w-10 h-10" aria-hidden="true" />
+            {PASSOS.map(({ title, desc, icon: Icon }, i) => (
+              <Reveal key={title} delay={i * 120}>
+                <div className="h-full bg-white p-10 rounded-3xl shadow-sm border border-gray-200/80 flex flex-col items-center text-center space-y-6 transition-colors duration-300 hover:border-brand-dark/40">
+                  <div className="w-20 h-20 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center shadow-md">
+                    <Icon className="w-10 h-10" aria-hidden="true" />
+                  </div>
+                  <h3 className="text-2xl font-bold">{title}</h3>
+                  <p className="text-gray-600 text-base leading-relaxed">{desc}</p>
                 </div>
-                <h3 className="text-2xl font-bold transition-colors duration-300 group-hover:text-brand-dark">{title}</h3>
-                <p className="text-gray-600 text-base leading-relaxed">{desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -176,30 +179,33 @@ export default function Home() {
       {/* 3. Seção: Proteção Veicular Completa */}
       <section className="py-28 bg-white text-brand-blue">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+          <Reveal className="text-center max-w-3xl mx-auto mb-20 space-y-4">
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
               Proteção veicular completa
             </h2>
             <p className="text-gray-600 text-xl font-normal">
               Seu veículo protegido contra os imprevistos do dia a dia. As coberturas variam conforme o plano escolhido.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            {COBERTURAS.map((item) => {
+            {COBERTURAS.map((item, i) => {
               const IconComp = item.icon;
               return (
-                <div key={item.title} className="group bg-gray-50/80 p-8 rounded-3xl border border-gray-200/80 flex items-center gap-6 transition-all duration-300 hover:bg-white hover:border-brand-dark hover:shadow-xl hover:-translate-y-1.5">
-                  <div className="w-16 h-16 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:bg-brand-dark group-hover:text-white shadow-sm">
-                    <IconComp className="w-8 h-8" />
+                <Reveal key={item.title} delay={(i % 3) * 100}>
+                  <div className="h-full bg-gray-50/80 p-8 rounded-3xl border border-gray-200/80 flex items-center gap-6 transition-colors duration-300 hover:border-brand-dark/40">
+                    <div className="w-16 h-16 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center shrink-0 shadow-sm">
+                      <IconComp className="w-8 h-8" aria-hidden="true" />
+                    </div>
+                    <h3 className="font-bold text-xl">{item.title}</h3>
                   </div>
-                  <h3 className="font-bold text-xl transition-colors duration-300 group-hover:text-brand-dark">{item.title}</h3>
-                </div>
+                </Reveal>
               );
             })}
           </div>
 
           {/* Sub-bloco: Assistência 24 horas */}
+          <Reveal>
           <div className="bg-brand-blue text-white p-10 sm:p-16 rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-brand-dark">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-7 space-y-8">
@@ -211,7 +217,7 @@ export default function Home() {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-base text-gray-200">
                   {ASSISTENCIAS.map((text, i) => (
-                    <div key={text} className={`flex items-center gap-3 transition-transform hover:translate-x-1 duration-200 ${i === ASSISTENCIAS.length - 1 ? 'sm:col-span-2' : ''}`}>
+                    <div key={text} className={`flex items-center gap-3 ${i === ASSISTENCIAS.length - 1 ? 'sm:col-span-2' : ''}`}>
                       <CheckCircle className="w-5 h-5 text-brand-accent shrink-0" />
                       <span className="font-medium">{text}</span>
                     </div>
@@ -247,6 +253,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </Reveal>
 
         </div>
       </section>
@@ -257,7 +264,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             {/* Textos e Vantagens */}
-            <div className="lg:col-span-7 space-y-8">
+            <Reveal className="lg:col-span-7 space-y-8">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2.5 bg-brand-dark/10 text-brand-dark px-5 py-2.5 rounded-full text-sm font-semibold border border-brand-dark/10">
                   <Smartphone className="w-5 h-5 text-brand-dark" />
@@ -275,12 +282,12 @@ export default function Home() {
                 {VANTAGENS_RASTREADOR.map((item) => {
                   const IconComp = item.icon;
                   return (
-                    <div key={item.title} className="group flex gap-6 items-start p-6 rounded-3xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:border hover:border-gray-200/80">
-                      <div className="w-16 h-16 rounded-2xl bg-white text-brand-dark shadow-md border border-gray-100 flex items-center justify-center shrink-0 mt-1 transition-all duration-300 group-hover:bg-brand-dark group-hover:text-white group-hover:scale-110">
+                    <div key={item.title} className="flex gap-6 items-start p-6 rounded-3xl">
+                      <div className="w-16 h-16 rounded-2xl bg-white text-brand-dark shadow-md border border-gray-100 flex items-center justify-center shrink-0 mt-1">
                         <IconComp className="w-8 h-8" />
                       </div>
                       <div className="space-y-2">
-                        <h3 className="font-bold text-xl transition-colors duration-300 group-hover:text-brand-dark">{item.title}</h3>
+                        <h3 className="font-bold text-xl">{item.title}</h3>
                         <p className="text-gray-600 text-base leading-relaxed">
                           {item.desc}
                         </p>
@@ -295,16 +302,16 @@ export default function Home() {
                   href={rastreadorUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-brand-blue text-white hover:bg-brand-dark px-10 py-5 rounded-2xl font-bold shadow-xl transition-all duration-300 hover:scale-105 text-lg"
+                  className="inline-flex items-center gap-3 bg-brand-blue text-white hover:bg-brand-dark px-10 py-5 rounded-2xl font-bold shadow-xl transition-all duration-300 text-lg"
                 >
                   <PhoneCall className="w-6 h-6" />
                   <span>Quero instalar o rastreador</span>
                 </a>
               </div>
-            </div>
+            </Reveal>
 
             {/* Coluna da Imagem do Celular */}
-            <div className="lg:col-span-5 flex flex-col items-center">
+            <Reveal delay={150} className="lg:col-span-5 flex flex-col items-center">
               <div className="w-full max-w-md bg-white p-6 rounded-[2.5rem] border border-gray-200 shadow-2xl flex flex-col items-center">
                 <div className="relative w-full h-[520px] my-2">
                   <Image
@@ -325,7 +332,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
           </div>
         </div>

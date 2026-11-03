@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Car, Bike, CheckCircle } from "lucide-react";
 import { whatsappLink } from "@/lib/site";
 import { PLANOS_CARROS, PLANOS_MOTOS } from "@/lib/content";
+import Reveal from "@/components/Reveal";
 
 type Tab = "carros" | "motos";
 
@@ -29,7 +30,7 @@ export default function PlanosTabs({
     <>
       {/* Seção Principal da Página */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-brand-blue via-brand-mid to-brand-dark relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 animate-fade-up">
           {intro}
 
           {/* Abas de Navegação (Carros | Motos) */}
@@ -78,10 +79,10 @@ export default function PlanosTabs({
             role="tabpanel"
             className={`grid grid-cols-1 ${activeTab === "carros" ? "lg:grid-cols-3" : "lg:grid-cols-2 max-w-4xl mx-auto"} gap-8 mb-20 items-stretch`}
           >
-            {planosAtuais.map((plano) => (
+            {planosAtuais.map((plano, i) => (
+              <Reveal key={plano.nome} delay={i * 120}>
               <div
-                key={plano.nome}
-                className={`relative bg-gray-50 p-8 rounded-3xl border flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
+                className={`relative h-full bg-gray-50 p-8 rounded-3xl border flex flex-col justify-between transition-shadow duration-300 hover:shadow-xl ${
                   plano.popular
                     ? "border-brand-dark shadow-xl ring-2 ring-brand-dark/20 bg-white"
                     : "border-gray-200/80"
@@ -124,6 +125,7 @@ export default function PlanosTabs({
                   </a>
                 </div>
               </div>
+              </Reveal>
             ))}
           </div>
 

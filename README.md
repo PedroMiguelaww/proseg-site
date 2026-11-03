@@ -16,10 +16,11 @@ app/
   globals.css             Tailwind + cores da marca (tokens brand-*)
 components/
   Header.tsx, Footer.tsx  Cabeçalho e rodapé
-  PageHeader.tsx          Faixa "Voltar" das páginas internas
+  Reveal.tsx              Animação de entrada ao rolar a página
+  WhatsAppFloat.tsx       Botão flutuante de WhatsApp
   CtaWhatsApp.tsx         Bloco de chamada final para o WhatsApp
   IconCard.tsx            Card com ícone, título e texto
-  PlanosTabs.tsx          Abas Carros | Motos (único componente client)
+  PlanosTabs.tsx          Abas Carros | Motos (roda no navegador)
 lib/
   site.ts                 Telefones, WhatsApp e links do menu
   content.ts              Planos e vantagens do rastreador

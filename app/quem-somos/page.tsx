@@ -7,8 +7,8 @@ import {
   HeartHandshake,
   CheckCircle2
 } from "lucide-react";
-import PageHeader from "@/components/PageHeader";
 import IconCard from "@/components/IconCard";
+import Reveal from "@/components/Reveal";
 import CtaWhatsApp from "@/components/CtaWhatsApp";
 
 export const metadata: Metadata = {
@@ -44,11 +44,10 @@ const PILARES = [
 export default function QuemSomos() {
   return (
     <div className="bg-brand-blue text-white">
-      <PageHeader label="Sobre a Proseg" />
 
       {/* Seção Hero / Quem Somos */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-brand-blue via-brand-mid to-brand-dark relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 animate-fade-up">
           <div className="inline-flex items-center gap-2.5 bg-white/10 text-white px-5 py-2.5 rounded-full text-sm font-medium border border-white/10 backdrop-blur-sm">
             <Users className="w-5 h-5 text-brand-accent" aria-hidden="true" />
             <span>Nosso compromisso</span>
@@ -69,7 +68,7 @@ export default function QuemSomos() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
-            <div className="lg:col-span-6 space-y-6">
+            <Reveal className="lg:col-span-6 space-y-6">
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
                 Confiança e atendimento próximo
               </h2>
@@ -84,9 +83,9 @@ export default function QuemSomos() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
 
-            <div className="lg:col-span-6 bg-gray-50 p-8 sm:p-12 rounded-[2.5rem] border border-gray-200/80 space-y-6 shadow-sm">
+            <Reveal delay={150} className="lg:col-span-6 bg-gray-50 p-8 sm:p-12 rounded-[2.5rem] border border-gray-200/80 space-y-6 shadow-sm">
               <div className="w-16 h-16 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center">
                 <Award className="w-8 h-8" aria-hidden="true" />
               </div>
@@ -94,13 +93,13 @@ export default function QuemSomos() {
               <p className="text-gray-600 leading-relaxed">
                 Garantir que todo motorista tenha acesso a uma proteção veicular justa, de qualidade e com bom custo-benefício, para dirigir tranquilo pelas ruas e estradas.
               </p>
-            </div>
+            </Reveal>
           </div>
 
           {/* Pilares da Empresa */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            {PILARES.map((pilar) => (
-              <IconCard key={pilar.title} icon={pilar.icon} title={pilar.title}>
+            {PILARES.map((pilar, i) => (
+              <IconCard key={pilar.title} icon={pilar.icon} title={pilar.title} delay={i * 120}>
                 {pilar.desc}
               </IconCard>
             ))}
