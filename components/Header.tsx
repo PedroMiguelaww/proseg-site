@@ -5,14 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
-import { SITE, whatsappLink } from "@/lib/site";
-
-const navLinks = [
-  { href: "/", label: "Início" },
-  { href: "/protecao-veicular", label: "Proteção Veicular" },
-  { href: "/rastreador", label: "Rastreador" },
-  { href: "/quem-somos", label: "Quem Somos" },
-];
+import { SITE, NAV_LINKS as navLinks, whatsappLink } from "@/lib/site";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,8 +25,9 @@ export default function Header() {
                 src="/images/logoBranca.png"
                 alt="Logo Proseg"
                 fill
+                sizes="192px"
                 className="object-contain object-left"
-                priority
+                loading="eager"
               />
             </div>
           </Link>

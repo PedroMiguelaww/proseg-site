@@ -9,9 +9,21 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
+const description = "Proteção veicular completa e assistência 24h em Campina Grande e região.";
+
 export const metadata: Metadata = {
-  title: "Proseg - Associação de Proteção Veicular",
-  description: "Proteção veicular completa e assistência 24h em Campina Grande e região.",
+  title: {
+    default: "Proseg - Associação de Proteção Veicular",
+    template: "%s | Proseg",
+  },
+  description,
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Proseg",
+    title: "Proseg - Associação de Proteção Veicular",
+    description,
+  },
 };
 
 export default function RootLayout({

@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site Proseg
 
-## Getting Started
+Site institucional da **Proseg - Associação de Proteção Veicular** (Campina Grande - PB).
 
-First, run the development server:
+Feito com Next.js 16 (App Router), React 19 e Tailwind CSS 4. Publicado na Cloudflare Workers via [OpenNext](https://opennext.js.org/cloudflare).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Estrutura
+
+```
+app/
+  layout.tsx              Layout raiz (fonte, Header, Footer, metadata padrão)
+  page.tsx                Página inicial
+  protecao-veicular/      Planos para carros e motos
+  rastreador/             Rastreador veicular
+  quem-somos/             Sobre a empresa
+  globals.css             Tailwind + cores da marca (tokens brand-*)
+components/
+  Header.tsx, Footer.tsx  Cabeçalho e rodapé
+  PageHeader.tsx          Faixa "Voltar" das páginas internas
+  CtaWhatsApp.tsx         Bloco de chamada final para o WhatsApp
+  IconCard.tsx            Card com ícone, título e texto
+  PlanosTabs.tsx          Abas Carros | Motos (único componente client)
+lib/
+  site.ts                 Telefones, WhatsApp e links do menu
+  content.ts              Planos e vantagens do rastreador
+public/images/            Imagens (WebP, exceto o logo)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Onde alterar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Telefone / WhatsApp / menu:** `lib/site.ts`
+- **Planos e coberturas:** `lib/content.ts`
+- **Cores da marca:** bloco `@theme` em `app/globals.css` (use as classes `bg-brand-blue`, `text-brand-accent` etc., nunca hex direto)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Desenvolvimento
 
-## Learn More
+```bash
+npm install
+npm run dev     # http://localhost:3000
+npm run lint
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy (Cloudflare)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx opennextjs-cloudflare build
+npx opennextjs-cloudflare preview   # testa localmente no runtime da Cloudflare
+npx opennextjs-cloudflare deploy
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Configuração em `wrangler.jsonc` e `open-next.config.ts`.
