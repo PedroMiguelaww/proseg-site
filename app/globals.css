@@ -22,6 +22,27 @@ body {
   color: #333333;
 }
 
+/* Cursor: setinha no site todo (sem o "I" de texto ao passar sobre textos),
+   mãozinha no que é clicável e "I" só onde se digita */
+body {
+  cursor: default;
+}
+
+a[href],
+button:not(:disabled),
+[role="button"],
+[role="tab"],
+label[for],
+select {
+  cursor: pointer;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+}
+
 /* Animação de entrada (components/Reveal.tsx).
    Só esconde quando o JS está ativo (classe "js" no <html>). */
 .js [data-reveal] {
