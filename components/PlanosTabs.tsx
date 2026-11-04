@@ -31,7 +31,7 @@ export default function PlanosTabs({
     <>
       {/* Seção Principal da Página */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-brand-blue via-brand-mid to-brand-dark relative overflow-hidden">
-        <DecoracaoHero />
+        <DecoracaoHero mascote="escudo" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 animate-fade-up">
           {intro}
 

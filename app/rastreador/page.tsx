@@ -21,7 +21,7 @@ export default function Rastreador() {
 
       {/* Seção Principal / Hero do Rastreador */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-brand-blue via-brand-mid to-brand-dark relative overflow-hidden">
-        <DecoracaoHero />
+        <DecoracaoHero mascote="pino" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 

@@ -48,7 +48,7 @@ export default function QuemSomos() {
 
       {/* Seção Hero / Quem Somos */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-brand-blue via-brand-mid to-brand-dark relative overflow-hidden">
-        <DecoracaoHero />
+        <DecoracaoHero mascote="aperto" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 animate-fade-up">
           <div className="inline-flex items-center gap-2.5 bg-white/10 text-white px-5 py-2.5 rounded-full text-sm font-medium border border-white/10 backdrop-blur-sm">
             <Users className="w-5 h-5 text-brand-accent" aria-hidden="true" />

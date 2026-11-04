@@ -255,6 +255,138 @@ html[data-tema="black-friday"] .destaque-tema {
   }
 }
 
+/* Mascotes das páginas internas: aparecem uma vez no canto e somem */
+.tema-mascote {
+  position: absolute;
+  left: 6%;
+  bottom: 28px;
+  color: #E8B74A;
+  opacity: 0;
+}
+
+/* Escudo (Proteção Veicular): surge crescendo, brilha e some */
+.tema-escudo {
+  animation: escudo 3.6s 0.9s ease-out both;
+}
+
+@keyframes escudo {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    filter: drop-shadow(0 0 0 rgba(232, 183, 74, 0));
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  40% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 14px rgba(232, 183, 74, 0.9));
+  }
+  60% {
+    filter: drop-shadow(0 0 0 rgba(232, 183, 74, 0));
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Pino de localização (Rastreador): cai, quica e solta ondas de radar */
+.tema-pino {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: pino-visivel 4.4s 0.9s ease-out both;
+}
+
+.tema-pino svg {
+  animation: pino-cai 0.9s 0.9s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+}
+
+@keyframes pino-visivel {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pino-cai {
+  from {
+    transform: translateY(-70px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.tema-radar {
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 14px;
+  height: 6px;
+  margin-left: -7px;
+  border: 2px solid #E8B74A;
+  border-radius: 50%;
+  opacity: 0;
+  animation: radar 1.4s 1.5s ease-out both;
+}
+
+@keyframes radar {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  10% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(5);
+  }
+}
+
+/* Aperto de mãos (Quem Somos): surge balançando de leve e some */
+.tema-aperto {
+  animation: aperto 3.4s 0.9s ease-out both;
+}
+
+@keyframes aperto {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) rotate(-8deg);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0) rotate(4deg);
+  }
+  40% {
+    transform: rotate(-3deg);
+  }
+  55% {
+    transform: rotate(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: none;
+  }
+}
+
 /* Linha dourada com losango separando o topo da próxima seção */
 .tema-divisor {
   position: absolute;
@@ -311,7 +443,8 @@ html[data-tema="black-friday"] .destaque-tema {
   }
 
   html[data-tema] .tema-poeira,
-  html[data-tema] .tema-carro {
+  html[data-tema] .tema-carro,
+  html[data-tema] .tema-mascote {
     display: none;
   }
 }
