@@ -20,7 +20,7 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center" aria-label="Proseg - página inicial">
-            <div className="relative w-48 h-14">
+            <div className="relative w-48 h-14 logo-tema">
               <Image
                 src="/images/logoBranca.png"
                 alt="Logo Proseg"

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SITE, whatsappLink } from "@/lib/site";
 import Reveal from "@/components/Reveal";
+import DecoracaoHero from "@/components/tema/DecoracaoHero";
 import { VANTAGENS_RASTREADOR } from "@/lib/content";
 import bannerHero from "@/public/images/bannerHero.webp";
 import reboque from "@/public/images/reboque.webp";
@@ -69,6 +70,7 @@ export default function Home() {
       
       {/* 1. Seção Hero (Banner Principal) */}
       <section className="bg-gradient-to-br from-brand-blue via-brand-mid to-brand-dark text-white py-24 lg:py-36 relative overflow-hidden">
+        <DecoracaoHero />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
@@ -80,7 +82,7 @@ export default function Home() {
               </div>
 
               <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1]">
-                Fique tranquilo com seu veículo <span className="text-brand-accent">bem protegido.</span>
+                Fique tranquilo com seu veículo <span className="text-brand-accent destaque-tema">bem protegido.</span>
               </h1>
 
               <p className="text-xl text-gray-300 max-w-2xl font-normal leading-relaxed">
@@ -125,7 +127,14 @@ export default function Home() {
 
             {/* Imagem do Hero */}
             <div className="lg:col-span-5 flex flex-col items-center animate-fade-up [animation-delay:150ms]">
-              <div className="w-full max-w-md bg-white/5 p-4 rounded-[2.5rem] border border-white/15 shadow-2xl backdrop-blur-sm">
+              <div className="relative w-full max-w-md bg-white/5 p-4 rounded-[2.5rem] border border-white/15 shadow-2xl backdrop-blur-sm">
+                {/* Cantoneiras douradas (só na Black Friday) */}
+                <div data-so-tema="black-friday" aria-hidden="true" className="absolute -inset-1.5">
+                  <span className="tema-cantoneira top-0 left-0 border-t-2 border-l-2 rounded-tl-xl" />
+                  <span className="tema-cantoneira top-0 right-0 border-t-2 border-r-2 rounded-tr-xl" />
+                  <span className="tema-cantoneira bottom-0 left-0 border-b-2 border-l-2 rounded-bl-xl" />
+                  <span className="tema-cantoneira bottom-0 right-0 border-b-2 border-r-2 rounded-br-xl" />
+                </div>
                 <div className="relative w-full h-[420px] rounded-[2rem] overflow-hidden shadow-inner">
                   <Image
                     src={bannerHero}
@@ -149,13 +158,13 @@ export default function Home() {
       </section>
 
       {/* 2. Seção: Se associar é muito fácil */}
-      <section className="py-28 bg-gray-50 text-brand-blue">
+      <section className="py-28 bg-surface-alt text-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center max-w-3xl mx-auto mb-20 space-y-4">
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
               É muito fácil se associar
             </h2>
-            <p className="text-gray-600 text-xl font-normal">
+            <p className="text-ink-soft text-xl font-normal">
               Sem análise de perfil, sem consulta ao SPC/Serasa, sem burocracia.
             </p>
           </Reveal>
@@ -163,12 +172,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {PASSOS.map(({ title, desc, icon: Icon }, i) => (
               <Reveal key={title} delay={i * 120}>
-                <div className="h-full bg-white p-10 rounded-3xl shadow-sm border border-gray-200/80 flex flex-col items-center text-center space-y-6 transition-colors duration-300 hover:border-brand-dark/40">
+                <div className="h-full bg-surface-card p-10 rounded-3xl shadow-sm border border-line flex flex-col items-center text-center space-y-6 transition-colors duration-300 hover:border-ink-accent/40">
                   <div className="w-20 h-20 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center shadow-md">
                     <Icon className="w-10 h-10" aria-hidden="true" />
                   </div>
                   <h3 className="text-2xl font-bold">{title}</h3>
-                  <p className="text-gray-600 text-base leading-relaxed">{desc}</p>
+                  <p className="text-ink-soft text-base leading-relaxed">{desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -177,13 +186,13 @@ export default function Home() {
       </section>
 
       {/* 3. Seção: Proteção Veicular Completa */}
-      <section className="py-28 bg-white text-brand-blue">
+      <section className="py-28 bg-surface text-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center max-w-3xl mx-auto mb-20 space-y-4">
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
               Proteção veicular completa
             </h2>
-            <p className="text-gray-600 text-xl font-normal">
+            <p className="text-ink-soft text-xl font-normal">
               Seu veículo protegido contra os imprevistos do dia a dia. As coberturas variam conforme o plano escolhido.
             </p>
           </Reveal>
@@ -193,7 +202,7 @@ export default function Home() {
               const IconComp = item.icon;
               return (
                 <Reveal key={item.title} delay={(i % 3) * 100}>
-                  <div className="h-full bg-gray-50/80 p-8 rounded-3xl border border-gray-200/80 flex items-center gap-6 transition-colors duration-300 hover:border-brand-dark/40">
+                  <div className="h-full bg-surface-alt p-8 rounded-3xl border border-line flex items-center gap-6 transition-colors duration-300 hover:border-ink-accent/40">
                     <div className="w-16 h-16 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center shrink-0 shadow-sm">
                       <IconComp className="w-8 h-8" aria-hidden="true" />
                     </div>
@@ -259,21 +268,21 @@ export default function Home() {
       </section>
 
       {/* 4. Seção: Rastreador */}
-      <section className="py-28 bg-gray-50 text-brand-blue">
+      <section className="py-28 bg-surface-alt text-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             {/* Textos e Vantagens */}
             <Reveal className="lg:col-span-7 space-y-8">
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2.5 bg-brand-dark/10 text-brand-dark px-5 py-2.5 rounded-full text-sm font-semibold border border-brand-dark/10">
-                  <Smartphone className="w-5 h-5 text-brand-dark" />
+                <div className="inline-flex items-center gap-2.5 bg-ink-accent/10 text-ink-accent px-5 py-2.5 rounded-full text-sm font-semibold border border-ink-accent/10">
+                  <Smartphone className="w-5 h-5 text-ink-accent" />
                   <span>Tecnologia e monitoramento</span>
                 </div>
                 <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
                   Rastreador veicular
                 </h2>
-                <p className="text-gray-600 text-xl leading-relaxed font-normal">
+                <p className="text-ink-soft text-xl leading-relaxed font-normal">
                   Mais segurança para você e seu veículo, com localização em tempo real pelo celular.
                 </p>
               </div>
@@ -283,12 +292,12 @@ export default function Home() {
                   const IconComp = item.icon;
                   return (
                     <div key={item.title} className="flex gap-6 items-start p-6 rounded-3xl">
-                      <div className="w-16 h-16 rounded-2xl bg-white text-brand-dark shadow-md border border-gray-100 flex items-center justify-center shrink-0 mt-1">
+                      <div className="w-16 h-16 rounded-2xl bg-surface-card text-ink-accent shadow-md border border-line flex items-center justify-center shrink-0 mt-1">
                         <IconComp className="w-8 h-8" />
                       </div>
                       <div className="space-y-2">
                         <h3 className="font-bold text-xl">{item.title}</h3>
-                        <p className="text-gray-600 text-base leading-relaxed">
+                        <p className="text-ink-soft text-base leading-relaxed">
                           {item.desc}
                         </p>
                       </div>
@@ -302,7 +311,7 @@ export default function Home() {
                   href={rastreadorUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-brand-blue text-white hover:bg-brand-dark px-10 py-5 rounded-2xl font-bold shadow-xl transition-all duration-300 text-lg"
+                  className="inline-flex items-center gap-3 bg-cta text-cta-ink hover:bg-cta-hover px-10 py-5 rounded-2xl font-bold shadow-xl transition-all duration-300 text-lg"
                 >
                   <PhoneCall className="w-6 h-6" />
                   <span>Quero instalar o rastreador</span>
@@ -312,7 +321,7 @@ export default function Home() {
 
             {/* Coluna da Imagem do Celular */}
             <Reveal delay={150} className="lg:col-span-5 flex flex-col items-center">
-              <div className="w-full max-w-md bg-white p-6 rounded-[2.5rem] border border-gray-200 shadow-2xl flex flex-col items-center">
+              <div className="w-full max-w-md bg-surface-card p-6 rounded-[2.5rem] border border-line shadow-2xl flex flex-col items-center">
                 <div className="relative w-full h-[520px] my-2">
                   <Image
                     src={celular}
@@ -323,11 +332,11 @@ export default function Home() {
                   />
                 </div>
                 <div className="mt-4 text-center w-full">
-                  <h3 className="text-xl font-bold text-brand-blue mb-1">App no seu celular</h3>
-                  <p className="text-sm text-gray-600 mb-5">
+                  <h3 className="text-xl font-bold text-ink mb-1">App no seu celular</h3>
+                  <p className="text-sm text-ink-soft mb-5">
                     Acompanhe a rota, o histórico de trajetos e a localização em tempo real, na palma da sua mão.
                   </p>
-                  <div className="bg-brand-blue text-white py-3.5 px-4 rounded-xl font-bold text-xs tracking-wider shadow-md w-full text-center">
+                  <div className="bg-cta text-cta-ink py-3.5 px-4 rounded-xl font-bold text-xs tracking-wider shadow-md w-full text-center">
                     MONITORAMENTO 24H
                   </div>
                 </div>

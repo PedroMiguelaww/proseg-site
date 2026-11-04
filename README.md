@@ -21,6 +21,11 @@ components/
   CtaWhatsApp.tsx         Bloco de chamada final para o WhatsApp
   IconCard.tsx            Card com ícone, título e texto
   PlanosTabs.tsx          Abas Carros | Motos (roda no navegador)
+  tema/                   Enfeites das skins (letreiro, fita, poeira, carrinho)
+themes/                   Skins sazonais (uma por arquivo)
+  index.ts                Escolhe a skin pela data (horário de Brasília)
+  padrao.ts               Visual normal
+  black-friday.ts         Black Friday (preto e dourado)
 lib/
   site.ts                 Telefones, WhatsApp e links do menu
   content.ts              Planos e vantagens do rastreador
@@ -31,7 +36,20 @@ public/images/            Imagens (WebP, exceto o logo)
 
 - **Telefone / WhatsApp / menu:** `lib/site.ts`
 - **Planos e coberturas:** `lib/content.ts`
-- **Cores da marca:** bloco `@theme` em `app/globals.css` (use as classes `bg-brand-blue`, `text-brand-accent` etc., nunca hex direto)
+- **Cores da marca:** bloco `@theme` em `app/globals.css` (use as classes `bg-brand-blue`, `text-brand-accent` etc., nunca hex direto). Nas seções claras, use os tokens `bg-surface`, `text-ink`, `text-ink-soft`, `border-line` etc., que mudam com a skin.
+
+## Skins sazonais
+
+O site troca de visual sozinho pela data. Cada skin é um arquivo em `themes/` com nome, período, frases do letreiro e o marcador das mensagens de WhatsApp (ex.: "(Black Friday)"). As cores e enfeites ficam em `app/globals.css`, no bloco `html[data-tema="..."]`.
+
+- **Trava `ativo`:** com `ativo: false`, a skin nunca liga pela data. Mude para `true` só depois de aprovada.
+- **Ver uma skin antes da data:** rode o site com a variável `NEXT_PUBLIC_TEMA_FORCADO`:
+
+  ```bash
+  NEXT_PUBLIC_TEMA_FORCADO=black-friday npm run dev
+  ```
+
+  Não coloque essa variável em `.env.local`: ela seria lida também no build de produção.
 
 ## Desenvolvimento
 

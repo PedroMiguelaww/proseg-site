@@ -12,7 +12,7 @@ type Props = {
 // Bloco de chamada final com botão para o WhatsApp
 export default function CtaWhatsApp({ title, text, buttonLabel, message }: Props) {
   return (
-    <Reveal className="bg-brand-blue text-white p-12 rounded-[2.5rem] shadow-2xl text-center space-y-6">
+    <Reveal className="bg-brand-blue text-white border border-line p-12 rounded-[2.5rem] shadow-2xl text-center space-y-6">
       <h3 className="text-3xl sm:text-4xl font-extrabold">{title}</h3>
       <p className="text-gray-300 text-lg max-w-xl mx-auto">{text}</p>
       <div>

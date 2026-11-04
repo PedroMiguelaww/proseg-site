@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import IconCard from "@/components/IconCard";
 import Reveal from "@/components/Reveal";
+import DecoracaoHero from "@/components/tema/DecoracaoHero";
 import CtaWhatsApp from "@/components/CtaWhatsApp";
 
 export const metadata: Metadata = {
@@ -47,14 +48,15 @@ export default function QuemSomos() {
 
       {/* Seção Hero / Quem Somos */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-brand-blue via-brand-mid to-brand-dark relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 animate-fade-up">
+        <DecoracaoHero />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 animate-fade-up">
           <div className="inline-flex items-center gap-2.5 bg-white/10 text-white px-5 py-2.5 rounded-full text-sm font-medium border border-white/10 backdrop-blur-sm">
             <Users className="w-5 h-5 text-brand-accent" aria-hidden="true" />
             <span>Nosso compromisso</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
-            Especialistas em proteger o que é <span className="text-brand-accent">importante para você</span>
+            Especialistas em proteger o que é <span className="text-brand-accent destaque-tema">importante para você</span>
           </h1>
 
           <p className="text-xl text-gray-300 max-w-2xl mx-auto font-normal leading-relaxed">
@@ -64,7 +66,7 @@ export default function QuemSomos() {
       </section>
 
       {/* Seção de Valores e Missão */}
-      <section className="py-24 bg-white text-brand-blue">
+      <section className="py-24 bg-surface text-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
@@ -72,25 +74,25 @@ export default function QuemSomos() {
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
                 Confiança e atendimento próximo
               </h2>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <p className="text-ink-soft text-lg leading-relaxed">
                 A Proseg se destaca no mercado de proteção veicular pela seriedade com que trata cada associado. Trabalhamos com foco na agilidade do atendimento, sem consultas ao SPC/Serasa e sem burocracias desnecessárias na hora de contratar.
               </p>
               <ul className="space-y-3 pt-2">
                 {DIFERENCIAIS.map((texto) => (
                   <li key={texto} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-brand-dark shrink-0" aria-hidden="true" />
-                    <span className="font-semibold text-gray-800">{texto}</span>
+                    <CheckCircle2 className="w-6 h-6 text-ink-accent shrink-0" aria-hidden="true" />
+                    <span className="font-semibold text-ink-strong">{texto}</span>
                   </li>
                 ))}
               </ul>
             </Reveal>
 
-            <Reveal delay={150} className="lg:col-span-6 bg-gray-50 p-8 sm:p-12 rounded-[2.5rem] border border-gray-200/80 space-y-6 shadow-sm">
+            <Reveal delay={150} className="lg:col-span-6 bg-surface-alt p-8 sm:p-12 rounded-[2.5rem] border border-line space-y-6 shadow-sm">
               <div className="w-16 h-16 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center">
                 <Award className="w-8 h-8" aria-hidden="true" />
               </div>
               <h3 className="text-2xl font-bold">Nossa missão</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-ink-soft leading-relaxed">
                 Garantir que todo motorista tenha acesso a uma proteção veicular justa, de qualidade e com bom custo-benefício, para dirigir tranquilo pelas ruas e estradas.
               </p>
             </Reveal>

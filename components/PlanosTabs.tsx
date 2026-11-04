@@ -5,6 +5,7 @@ import { Car, Bike, CheckCircle } from "lucide-react";
 import { whatsappLink } from "@/lib/site";
 import { PLANOS_CARROS, PLANOS_MOTOS } from "@/lib/content";
 import Reveal from "@/components/Reveal";
+import DecoracaoHero from "@/components/tema/DecoracaoHero";
 
 type Tab = "carros" | "motos";
 
@@ -30,7 +31,8 @@ export default function PlanosTabs({
     <>
       {/* Seção Principal da Página */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-brand-blue via-brand-mid to-brand-dark relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 animate-fade-up">
+        <DecoracaoHero />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 animate-fade-up">
           {intro}
 
           {/* Abas de Navegação (Carros | Motos) */}
@@ -63,13 +65,13 @@ export default function PlanosTabs({
       </section>
 
       {/* Seção dos Planos */}
-      <section className="py-24 bg-white text-brand-blue">
+      <section className="py-24 bg-surface text-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
               Planos para {activeTab}
             </h2>
-            <p className="text-gray-600 text-lg">
+            <p className="text-ink-soft text-lg">
               Conheça as coberturas e benefícios exclusivos de cada categoria.
             </p>
           </div>
@@ -82,29 +84,29 @@ export default function PlanosTabs({
             {planosAtuais.map((plano, i) => (
               <Reveal key={plano.nome} delay={i * 120}>
               <div
-                className={`relative h-full bg-gray-50 p-8 rounded-3xl border flex flex-col justify-between transition-shadow duration-300 hover:shadow-xl ${
+                className={`relative h-full bg-surface-alt p-8 rounded-3xl border flex flex-col justify-between transition-shadow duration-300 hover:shadow-xl ${
                   plano.popular
-                    ? "border-brand-dark shadow-xl ring-2 ring-brand-dark/20 bg-white"
-                    : "border-gray-200/80"
+                    ? "border-ink-accent shadow-xl ring-2 ring-ink-accent/20 bg-surface-card"
+                    : "border-line"
                 }`}
               >
                 {plano.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-dark text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-ink-accent text-surface px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md">
                     Mais popular
                   </div>
                 )}
 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-2xl font-extrabold text-brand-blue mb-2">{plano.nome}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{plano.tagline}</p>
+                    <h3 className="text-2xl font-extrabold text-ink mb-2">{plano.nome}</h3>
+                    <p className="text-ink-soft text-sm leading-relaxed">{plano.tagline}</p>
                   </div>
 
-                  <ul className="border-t border-gray-200 pt-6 space-y-3">
+                  <ul className="border-t border-line pt-6 space-y-3">
                     {plano.recursos.map((recurso) => (
                       <li key={recurso} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-brand-dark shrink-0 mt-0.5" aria-hidden="true" />
-                        <span className="text-gray-700 text-sm font-medium">{recurso}</span>
+                        <CheckCircle className="w-5 h-5 text-ink-accent shrink-0 mt-0.5" aria-hidden="true" />
+                        <span className="text-ink-strong text-sm font-medium">{recurso}</span>
                       </li>
                     ))}
                   </ul>
@@ -117,7 +119,7 @@ export default function PlanosTabs({
                     rel="noopener noreferrer"
                     className={`block w-full py-4 rounded-xl font-bold text-center text-sm shadow-md transition-all duration-300 ${
                       plano.popular
-                        ? "bg-brand-blue text-white hover:bg-brand-dark"
+                        ? "bg-cta text-cta-ink hover:bg-cta-hover"
                         : "bg-brand-light text-brand-blue hover:bg-brand-dark hover:text-white"
                     }`}
                   >

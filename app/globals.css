@@ -9,6 +9,43 @@
   --color-brand-mid: #0d2e54;
   --color-brand-deep: #071930;
   --color-whatsapp: #25D366;
+
+  /* Tokens das áreas claras (seções brancas/cinza). Os temas sazonais
+     trocam estes valores; use-os em vez de bg-white, text-gray-600 etc. */
+  --color-surface: #ffffff;        /* fundo de seção */
+  --color-surface-alt: #f9fafb;    /* fundo de seção alternada e de cards */
+  --color-surface-card: #ffffff;   /* card sobre fundo alternado */
+  --color-line: #e5e7eb;           /* bordas */
+  --color-ink: #0B2545;            /* títulos */
+  --color-ink-soft: #4b5563;       /* textos de apoio */
+  --color-ink-strong: #1f2937;     /* textos fortes */
+  --color-ink-accent: #134074;     /* ícones e detalhes de destaque */
+  --color-cta: #0B2545;            /* botão principal em área clara */
+  --color-cta-ink: #ffffff;
+  --color-cta-hover: #134074;
+}
+
+/* ---------- Tema Black Friday (preto e dourado) ----------
+   Ativado pelo atributo data-tema no <html> (ver app/layout.tsx e themes/) */
+html[data-tema="black-friday"] {
+  --color-brand-blue: #0a0a0a;
+  --color-brand-dark: #1f1b12;
+  --color-brand-light: #E8B74A;
+  --color-brand-accent: #E8B74A;
+  --color-brand-mid: #141210;
+  --color-brand-deep: #050505;
+
+  --color-surface: #0e0e0e;
+  --color-surface-alt: #151515;
+  --color-surface-card: #1b1b1b;
+  --color-line: rgba(232, 183, 74, 0.22);
+  --color-ink: #ffffff;
+  --color-ink-soft: #b8b8b8;
+  --color-ink-strong: #e8e8e8;
+  --color-ink-accent: #E8B74A;
+  --color-cta: #E8B74A;
+  --color-cta-ink: #111111;
+  --color-cta-hover: #f3cb6b;
 }
 
 /* Configurações globais básicas */
@@ -18,7 +55,7 @@ html {
 
 body {
   font-family: var(--font-montserrat), sans-serif;
-  background-color: #ffffff;
+  background-color: var(--color-surface);
   color: #333333;
 }
 
@@ -67,6 +104,166 @@ body {
   animation: float-in 0.4s ease-out 0.8s both;
 }
 
+/* ---------- Decorações dos temas ----------
+   Elementos com data-so-tema="x" só aparecem quando o tema x está ativo.
+   Todos são decorativos: não recebem clique e ficam atrás do conteúdo. */
+[data-so-tema] {
+  display: none;
+  pointer-events: none;
+}
+
+html[data-tema="black-friday"] [data-so-tema="black-friday"] {
+  display: block;
+}
+
+/* Letreiro rolando no topo (components/tema/Letreiro.tsx) */
+.letreiro-trilho {
+  display: flex;
+  width: max-content;
+  animation: letreiro 45s linear infinite;
+}
+
+@keyframes letreiro {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reflexo que passa uma vez pelo logo */
+.logo-tema {
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-tema="black-friday"] .logo-tema::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 230, 160, 0.85) 50%, transparent 65%);
+  transform: translateX(-120%);
+  animation: reflexo 1.4s 0.6s ease-out forwards;
+}
+
+@keyframes reflexo {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+/* Brilho dourado que percorre o destaque do título uma vez */
+html[data-tema="black-friday"] .destaque-tema {
+  background: linear-gradient(90deg, #E8B74A 0%, #fff1c2 50%, #E8B74A 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: brilho-texto 2s 0.3s ease-out both;
+}
+
+@keyframes brilho-texto {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+/* Fita dourada no canto do topo */
+.tema-fita {
+  position: absolute;
+  top: 26px;
+  right: -52px;
+  z-index: 1;
+  transform: rotate(40deg);
+  background: #E8B74A;
+  color: #111111;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 6px 60px;
+}
+
+/* Poeira dourada subindo no fundo do topo */
+.tema-poeira {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background: #E8B74A;
+  opacity: 0;
+  animation: poeira 7s linear infinite;
+}
+
+@keyframes poeira {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-180px);
+  }
+}
+
+/* Carrinho que atravessa o rodapé do topo uma vez */
+.tema-carro {
+  position: absolute;
+  bottom: 10px;
+  left: -60px;
+  color: #E8B74A;
+  opacity: 0;
+  animation: carro 5s 0.9s ease-in-out both;
+}
+
+@keyframes carro {
+  0% {
+    left: -60px;
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% + 60px);
+    opacity: 0;
+  }
+}
+
+/* Linha dourada com losango separando o topo da próxima seção */
+.tema-divisor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(232, 183, 74, 0.45);
+}
+
+.tema-divisor::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -4px;
+  width: 9px;
+  height: 9px;
+  background: #E8B74A;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Cantoneiras douradas da moldura da foto */
+.tema-cantoneira {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: #E8B74A;
+  border-style: solid;
+}
+
 /* Respeita quem pediu menos movimento no sistema */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -80,7 +277,20 @@ body {
   }
 
   .animate-float-in,
-  .animate-fade-up {
+  .animate-fade-up,
+  .letreiro-trilho,
+  .tema-poeira,
+  html[data-tema="black-friday"] .logo-tema::after,
+  html[data-tema="black-friday"] .destaque-tema {
     animation: none;
+  }
+
+  html[data-tema="black-friday"] .destaque-tema {
+    color: #E8B74A;
+  }
+
+  html[data-tema] .tema-poeira,
+  html[data-tema] .tema-carro {
+    display: none;
   }
 }
