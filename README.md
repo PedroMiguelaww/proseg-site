@@ -44,10 +44,19 @@ npm run build
 
 ## Deploy (Cloudflare)
 
+O deploy é automático: todo push na branch `main` faz a Cloudflare (Workers Builds, Worker `site-proseg`) montar e publicar o site. Outras branches não são publicadas.
+
+Configuração do build no painel (**Workers & Pages › site-proseg › Settings › Builds**):
+
+- Build command: `npx opennextjs-cloudflare build`
+- Deploy command: `npx opennextjs-cloudflare deploy`
+
+Para testar localmente no runtime da Cloudflare, ou publicar à mão em caso de emergência:
+
 ```bash
 npx opennextjs-cloudflare build
-npx opennextjs-cloudflare preview   # testa localmente no runtime da Cloudflare
-npx opennextjs-cloudflare deploy
+npx opennextjs-cloudflare preview   # testa localmente
+npx opennextjs-cloudflare deploy    # publica manualmente
 ```
 
 Configuração em `wrangler.jsonc` e `open-next.config.ts`.
