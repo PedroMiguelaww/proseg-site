@@ -6,6 +6,9 @@ import { VANTAGENS_RASTREADOR } from "@/lib/content";
 import bannerHero from "@/public/images/bannerHero.webp";
 import reboque from "@/public/images/reboque.webp";
 import celular from "@/public/images/celular.webp";
+import FaixaNumeros from "@/components/demo/FaixaNumeros";
+import PassosLinha from "@/components/demo/PassosLinha";
+import Depoimentos from "@/components/demo/Depoimentos";
 import {
   ShieldCheck,
   PhoneCall,
@@ -148,6 +151,8 @@ export default function Home() {
         </div>
       </section>
 
+      <FaixaNumeros />
+
       {/* 2. Seção: Se associar é muito fácil */}
       <section className="py-28 bg-gray-50 text-brand-blue">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -160,19 +165,7 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {PASSOS.map(({ title, desc, icon: Icon }, i) => (
-              <Reveal key={title} delay={i * 120}>
-                <div className="h-full bg-white p-10 rounded-3xl shadow-sm border border-gray-200/80 flex flex-col items-center text-center space-y-6 transition-colors duration-300 hover:border-brand-dark/40">
-                  <div className="w-20 h-20 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center shadow-md">
-                    <Icon className="w-10 h-10" aria-hidden="true" />
-                  </div>
-                  <h3 className="text-2xl font-bold">{title}</h3>
-                  <p className="text-gray-600 text-base leading-relaxed">{desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <PassosLinha passos={PASSOS} />
         </div>
       </section>
 
@@ -257,6 +250,8 @@ export default function Home() {
 
         </div>
       </section>
+
+      <Depoimentos />
 
       {/* 4. Seção: Rastreador */}
       <section className="py-28 bg-gray-50 text-brand-blue">

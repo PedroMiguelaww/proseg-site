@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { ShieldCheck } from "lucide-react";
 import PlanosTabs from "@/components/PlanosTabs";
 import CtaWhatsApp from "@/components/CtaWhatsApp";
+import TabelaPlanos from "@/components/demo/TabelaPlanos";
+import QuizPlano from "@/components/demo/QuizPlano";
+import Perguntas from "@/components/demo/Perguntas";
 
 export const metadata: Metadata = {
   title: "Planos de Proteção Veicular para Carros e Motos",
@@ -31,6 +34,10 @@ export default function ProtecaoVeicular() {
           </>
         }
       >
+        <TabelaPlanos />
+        <QuizPlano />
+        <Perguntas />
+
         {/* CTA de Fechamento de Planos */}
         <CtaWhatsApp
           title="Ficou em dúvida sobre qual plano escolher?"

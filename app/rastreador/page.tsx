@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
-import { Smartphone, PhoneCall, Navigation } from "lucide-react";
+import { Smartphone, PhoneCall } from "lucide-react";
 import { whatsappLink } from "@/lib/site";
 import { VANTAGENS_RASTREADOR } from "@/lib/content";
 import IconCard from "@/components/IconCard";
 import Reveal from "@/components/Reveal";
 import CtaWhatsApp from "@/components/CtaWhatsApp";
+import CelularMapa from "@/components/demo/CelularMapa";
+import LinhaVertical from "@/components/demo/LinhaVertical";
+import Exemplo from "@/components/demo/Exemplo";
 
 export const metadata: Metadata = {
   title: "Rastreador Veicular",
   description:
     "Rastreador veicular Proseg em Campina Grande: localização em tempo real pelo celular, monitoramento 24h e recuperação em caso de roubo.",
 };
+
+// Passos 1 a 3: orientação do site antigo da Proseg. Passos 4 e 5: confirmar com a empresa.
+const PASSOS_ROUBO = [
+  { marca: "1", titulo: "Ligue para a central 24h", texto: "Assim que perceber o roubo ou furto, ligue para a central de assistência (o número fica no topo do site)." },
+  { marca: "2", titulo: "Acione a polícia", texto: "Ligue para o 190 e informe o que aconteceu." },
+  { marca: "3", titulo: "Registre o boletim de ocorrência", texto: "O B.O. é necessário para dar andamento ao atendimento." },
+  { marca: "4", titulo: "Localização pelo rastreador", texto: "Com o rastreador, o veículo é localizado em tempo real e a informação é passada às autoridades." },
+  { marca: "5", titulo: "Recuperação", texto: "A busca começa na hora, o que aumenta muito as chances de recuperar o veículo." },
+];
 
 const MENSAGEM = "Olá, vim pelo site da Proseg e gostaria de saber mais sobre o rastreador";
 
@@ -50,25 +62,26 @@ export default function Rastreador() {
               </div>
             </div>
 
-            {/* Bloco de Destaque Visual */}
-            <div className="lg:col-span-5 flex flex-col items-center animate-fade-up [animation-delay:150ms]">
-              <div className="w-full max-w-md bg-white/5 p-6 rounded-[2.5rem] border border-white/15 shadow-2xl backdrop-blur-sm text-center space-y-6">
-                <div className="w-20 h-20 mx-auto rounded-2xl bg-brand-accent/20 text-brand-accent flex items-center justify-center border border-brand-accent/30">
-                  <Navigation className="w-10 h-10" aria-hidden="true" />
-                </div>
-                <div className="space-y-2">
-                  <h2 className="text-2xl font-bold text-white">Monitoramento 24h</h2>
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    Acompanhe rotas, histórico de trajetos e a localização do veículo direto pelo celular.
-                  </p>
-                </div>
-                <div className="bg-brand-blue text-brand-accent py-3.5 px-4 rounded-xl font-extrabold text-xs tracking-wider border border-brand-dark">
-                  LOCALIZAÇÃO EM TEMPO REAL
-                </div>
-              </div>
+            {/* Celular mostrando o carro no mapa */}
+            <div className="lg:col-span-5 animate-fade-up [animation-delay:150ms]">
+              <CelularMapa />
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* Roubaram meu carro, e agora? */}
+      <section className="py-24 bg-brand-deep text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+            <Exemplo />
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+              Roubaram meu carro. <span className="text-brand-accent">E agora?</span>
+            </h2>
+            <p className="text-gray-300 text-lg">Veja o que acontece, passo a passo, quando o veículo tem rastreador.</p>
+          </Reveal>
+          <LinhaVertical escuro itens={PASSOS_ROUBO} />
         </div>
       </section>
 

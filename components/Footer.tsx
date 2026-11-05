@@ -99,6 +99,9 @@ export default function Footer() {
         {/* Linha Inferior / Direitos Reservados */}
         <div className="border-t border-brand-dark pt-8 text-center text-xs text-gray-400">
           <p>© {new Date().getFullYear()} Proseg. Todos os direitos reservados.</p>
+          <p className="mt-2">
+            {SITE.razaoSocial} · CNPJ {SITE.cnpj} · {SITE.endereco}, {SITE.cidade}
+          </p>
         </div>
 
       </div>
