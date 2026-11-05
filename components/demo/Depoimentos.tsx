@@ -10,7 +10,7 @@ function Estrelas({ n }: { n: number }) {
         <Star
           key={i}
           aria-hidden="true"
-          className={`w-5 h-5 ${i < n ? "fill-amber-400 text-amber-400" : "text-gray-300"}`}
+          className={`w-5 h-5 ${i < n ? "fill-amber-400 text-amber-400" : "text-ink-soft opacity-40"}`}
         />
       ))}
     </div>
@@ -22,25 +22,25 @@ export default function Depoimentos() {
   const [destaque, ...outros] = DEPOIMENTOS;
 
   return (
-    <section className="py-28 bg-brand-light text-brand-blue">
+    <section className="py-28 bg-surface-destaque text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
           <div className="space-y-3">
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">Quem conhece, recomenda</h2>
-            <p className="text-gray-600 text-lg">Avaliações reais de associados no Google.</p>
+            <p className="text-ink-soft text-lg">Avaliações reais de associados no Google.</p>
           </div>
-          <div className="flex items-center gap-3 bg-white rounded-2xl px-5 py-4 shadow-sm shrink-0">
+          <div className="flex items-center gap-3 bg-surface-card border border-line rounded-2xl px-5 py-4 shadow-sm shrink-0">
             <span className="text-3xl font-extrabold">{NOTA_GOOGLE.nota}</span>
             <div>
               <Estrelas n={5} />
-              <span className="text-xs text-gray-500">{NOTA_GOOGLE.total} avaliações no Google</span>
+              <span className="text-xs text-ink-soft">{NOTA_GOOGLE.total} avaliações no Google</span>
             </div>
           </div>
         </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <Reveal className="lg:col-span-3">
-            <figure className="h-full bg-brand-blue text-white rounded-[2rem] p-10 sm:p-12 flex flex-col justify-between gap-8 relative overflow-hidden">
+            <figure className="h-full bg-brand-blue text-white border border-line rounded-[2rem] p-10 sm:p-12 flex flex-col justify-between gap-8 relative overflow-hidden">
               <Quote aria-hidden="true" className="absolute -top-4 -right-4 w-40 h-40 text-white/5" />
               <blockquote className="text-xl sm:text-2xl font-medium leading-relaxed relative">
                 “{destaque.texto}”
@@ -63,12 +63,12 @@ export default function Depoimentos() {
           <div className="lg:col-span-2 grid gap-8">
             {outros.map((d, i) => (
               <Reveal key={d.nome} delay={(i + 1) * 120}>
-                <figure className="h-full bg-white rounded-[2rem] p-8 shadow-sm space-y-4">
+                <figure className="h-full bg-surface-card border border-line rounded-[2rem] p-8 shadow-sm space-y-4">
                   <Estrelas n={d.estrelas} />
-                  <blockquote className="text-gray-700 leading-relaxed">“{d.texto}”</blockquote>
+                  <blockquote className="text-ink-strong leading-relaxed">“{d.texto}”</blockquote>
                   <figcaption className="text-sm">
                     <span className="font-bold">{d.nome}</span>
-                    <span className="text-gray-500"> · {d.quando}</span>
+                    <span className="text-ink-soft"> · {d.quando}</span>
                   </figcaption>
                 </figure>
               </Reveal>
@@ -81,7 +81,7 @@ export default function Depoimentos() {
             href={SITE.googleMaps}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-bold text-brand-dark underline underline-offset-4 hover:text-brand-blue"
+            className="inline-flex items-center gap-2 font-bold text-ink-accent underline underline-offset-4 hover:opacity-80"
           >
             Ver todas as avaliações no Google
           </a>

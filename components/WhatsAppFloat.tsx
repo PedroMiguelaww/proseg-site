@@ -1,4 +1,49 @@
+"use client";
+
 import { whatsappLink } from "@/lib/site";
+
+// Na Black Friday, o clique solta um confete dourado saindo do botão.
+// O link abre em outra aba, então o efeito aparece normalmente.
+function soltarConfete(e: React.MouseEvent<HTMLAnchorElement>) {
+  if (document.documentElement.dataset.tema !== "black-friday") return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  // Centro do círculo verde (o último filho do link)
+  const circulo = e.currentTarget.lastElementChild?.getBoundingClientRect();
+  if (!circulo) return;
+  const cx = circulo.left + circulo.width / 2;
+  const cy = circulo.top + circulo.height / 2;
+
+  for (let i = 0; i < 18; i++) {
+    const peca = document.createElement("span");
+    const angulo = Math.random() * Math.PI - Math.PI; // só para cima
+    const distancia = 60 + Math.random() * 80;
+    Object.assign(peca.style, {
+      position: "fixed",
+      left: `${cx}px`,
+      top: `${cy}px`,
+      width: "8px",
+      height: "8px",
+      borderRadius: "2px",
+      background: i % 3 ? "#E8B74A" : "#fff1c2",
+      pointerEvents: "none",
+      zIndex: "50",
+    });
+    document.body.appendChild(peca);
+    peca
+      .animate(
+        [
+          { transform: "translate(0, 0) rotate(0deg)", opacity: 1 },
+          {
+            transform: `translate(${Math.cos(angulo) * distancia}px, ${Math.sin(angulo) * distancia + 40}px) rotate(340deg)`,
+            opacity: 0,
+          },
+        ],
+        { duration: 1000, easing: "cubic-bezier(.2,.7,.4,1)" }
+      )
+      .finished.then(() => peca.remove());
+  }
+}
 
 // Botão redondo fixo no canto da tela, presente em todas as páginas
 export default function WhatsAppFloat() {
@@ -7,6 +52,7 @@ export default function WhatsAppFloat() {
       href={whatsappLink("Olá, vim pelo site da Proseg e gostaria de mais informações")}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={soltarConfete}
       aria-label="Fale conosco pelo WhatsApp"
       className="group fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 flex items-center gap-3 animate-float-in"
     >

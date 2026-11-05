@@ -4,6 +4,9 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import Letreiro from "@/components/tema/Letreiro";
+import { connection } from "next/server";
+import { getTemaAtivo } from "@/themes";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -27,18 +30,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // O tema depende da data, então é escolhido a cada visita (e não só no build)
+  await connection();
+  const tema = getTemaAtivo();
+
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" data-tema={tema.id} suppressHydrationWarning>
       <head>
         {/* Marca que o JS está ativo antes da pintura, para as animações de entrada (Reveal) */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body className={`${montserrat.variable} antialiased min-h-screen flex flex-col`}>
+        {tema.letreiro && <Letreiro frases={tema.letreiro} />}
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

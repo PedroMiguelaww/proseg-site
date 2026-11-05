@@ -4,6 +4,7 @@ import { whatsappLink } from "@/lib/site";
 import { VANTAGENS_RASTREADOR } from "@/lib/content";
 import IconCard from "@/components/IconCard";
 import Reveal from "@/components/Reveal";
+import DecoracaoHero from "@/components/tema/DecoracaoHero";
 import CtaWhatsApp from "@/components/CtaWhatsApp";
 import CelularMapa from "@/components/demo/CelularMapa";
 import LinhaVertical from "@/components/demo/LinhaVertical";
@@ -32,7 +33,8 @@ export default function Rastreador() {
 
       {/* Seção Principal / Hero do Rastreador */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-brand-blue via-brand-mid to-brand-dark relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <DecoracaoHero mascote="pino" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
             <div className="lg:col-span-7 space-y-6 animate-fade-up">
@@ -42,7 +44,7 @@ export default function Rastreador() {
               </div>
 
               <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
-                Rastreador Veicular <span className="text-brand-accent">Proseg</span>
+                Rastreador Veicular <span className="text-brand-accent destaque-tema">Proseg</span>
               </h1>
 
               <p className="text-xl text-gray-300 max-w-2xl font-normal leading-relaxed">
@@ -86,13 +88,13 @@ export default function Rastreador() {
       </section>
 
       {/* Seção de Vantagens Detalhadas */}
-      <section className="py-24 bg-white text-brand-blue">
+      <section className="py-24 bg-surface text-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center max-w-2xl mx-auto mb-20 space-y-3">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
               Por que ter um rastreador Proseg?
             </h2>
-            <p className="text-gray-600 text-lg">
+            <p className="text-ink-soft text-lg">
               Vantagens essenciais que fazem toda a diferença para o seu patrimônio.
             </p>
           </Reveal>

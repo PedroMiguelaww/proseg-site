@@ -25,7 +25,7 @@ export default function ProtecaoVeicular() {
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
-              Escolha a proteção ideal para <span className="text-brand-accent">o seu veículo</span>
+              Escolha a proteção ideal para <span className="text-brand-accent destaque-tema">o seu veículo</span>
             </h1>
 
             <p className="text-xl text-gray-300 max-w-2xl mx-auto font-normal leading-relaxed">
