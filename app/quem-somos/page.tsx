@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Users, MapPin, Award, CheckCircle2, Clock, UserRound, AtSign, Phone } from "lucide-react";
+import { Users, MapPin, Target, Eye, Gem, CheckCircle2, Clock, UserRound, AtSign, Phone } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CtaWhatsApp from "@/components/CtaWhatsApp";
 import LinhaVertical from "@/components/demo/LinhaVertical";
 import Exemplo from "@/components/demo/Exemplo";
-import { HISTORIA, VALORES } from "@/lib/demo";
+import { HISTORIA } from "@/lib/demo";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   description:
     "Conheça a Proseg, associação de proteção veicular de Campina Grande - PB: atendimento local, sem burocracia e assistência 24h.",
 };
+
+const INSTITUCIONAL = [
+  { titulo: "Missão", icon: Target },
+  { titulo: "Visão", icon: Eye },
+  { titulo: "Valores", icon: Gem },
+];
 
 const DIFERENCIAIS = [
   "Contratação rápida, prática e sem análise de perfil",
@@ -42,12 +48,12 @@ export default function QuemSomos() {
         </div>
       </section>
 
-      {/* Seção de Valores e Missão */}
+      {/* Apresentação, missão, visão e valores */}
       <section className="py-24 bg-white text-brand-blue">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
-            <Reveal className="lg:col-span-6 space-y-6">
+          <div className="max-w-3xl mx-auto mb-20">
+            <Reveal className="space-y-6">
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
                 Confiança e atendimento próximo
               </h2>
@@ -63,26 +69,19 @@ export default function QuemSomos() {
                 ))}
               </ul>
             </Reveal>
+          </div>
 
-            <Reveal delay={150} className="lg:col-span-6 bg-gray-50 p-8 sm:p-12 rounded-[2.5rem] border border-gray-200/80 space-y-6 shadow-sm">
-              <div className="w-16 h-16 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center">
-                <Award className="w-8 h-8" aria-hidden="true" />
-              </div>
-              <h3 className="text-2xl font-bold">Nossa missão</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Garantir que todo motorista tenha acesso a uma proteção veicular justa, de qualidade e com bom custo-benefício, para dirigir tranquilo pelas ruas e estradas.
-              </p>
-              <div className="pt-2">
-                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-3">Nossos valores</h4>
-                <ul className="flex flex-wrap gap-2">
-                  {VALORES.map((v) => (
-                    <li key={v} className="bg-white border border-gray-200 px-4 py-2 rounded-full text-sm font-semibold">
-                      {v}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
+          {/* Missão, visão e valores: textos ainda a definir com a empresa */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+            {INSTITUCIONAL.map(({ titulo, icon: Icon }, i) => (
+              <Reveal key={titulo} delay={i * 120} className="bg-gray-50 border border-gray-200/80 p-8 rounded-[2rem] space-y-4 shadow-sm">
+                <div className="w-14 h-14 rounded-2xl bg-brand-light text-brand-dark flex items-center justify-center">
+                  <Icon className="w-7 h-7" aria-hidden="true" />
+                </div>
+                <h3 className="text-2xl font-bold">{titulo}</h3>
+                <p className="text-gray-600 italic">Em definição com a empresa.</p>
+              </Reveal>
+            ))}
           </div>
 
           {/* Nossa história (linha do tempo) */}

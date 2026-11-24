@@ -45,7 +45,19 @@ export const PLANOS_CARROS: Plano[] = [
     tagline: "Nosso plano mais completo, com carro reserva e até 100% da FIPE",
     popular: false,
     recursos: [
-      "Tudo do Plano Ouro",
+      "Roubo e furto",
+      "Colisão",
+      "Perda total",
+      "Incêndio",
+      "Sem análise de perfil do motorista",
+      "Troca de pneu",
+      "Reboque",
+      "Chaveiro",
+      "Danos a terceiros",
+      "Hospedagem em caso de colisão",
+      "Pane seca",
+      "Pane elétrica ou mecânica",
+      "Assistência 24h pelo 0800",
       "Fenômenos da natureza",
       "Carro reserva",
       "Moto reserva",
@@ -100,8 +112,8 @@ export const VANTAGENS_RASTREADOR: { title: string; desc: string; icon: LucideIc
     icon: Lock
   },
   {
-    title: "Segurança contra sequestro",
-    desc: "Em situações de risco, o veículo pode ser localizado rapidamente, o que agiliza a ação das autoridades.",
+    title: "Histórico de trajetos",
+    desc: "Consulte as rotas que o veículo fez e por onde ele passou, direto no celular.",
     icon: Share2
   },
   {

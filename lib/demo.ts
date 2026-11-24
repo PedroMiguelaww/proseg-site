@@ -46,8 +46,6 @@ export const HISTORIA = [
   { ano: "Hoje", titulo: "Nota 4,9 no Google", texto: "Mais de 70 avaliações de associados, com atendimento de segunda a sexta e assistência 24h." },
 ];
 
-export const VALORES = ["Ética", "Empatia", "Moral", "Pessoas"];
-
 export const PERGUNTAS = [
   {
     pergunta: "Precisa de consulta ao SPC/Serasa para se associar?",
