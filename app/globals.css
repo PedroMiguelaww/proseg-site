@@ -88,7 +88,7 @@ textarea,
   animation: float-in 0.4s ease-out 0.8s both;
 }
 
-/* Celular do rastreador (components/demo/CelularMapa.tsx):
+/* Celular do rastreador (components/secoes/CelularMapa.tsx):
    a rota se desenha uma vez e o ponto do veículo pulsa */
 .mapa-rota {
   stroke-dasharray: 420;

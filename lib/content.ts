@@ -37,7 +37,7 @@ export const PLANOS_CARROS: Plano[] = [
       "Hospedagem em caso de colisão",
       "Pane seca",
       "Pane elétrica ou mecânica",
-      "Assistência 24h pelo 0800"
+      "Assistência 24h"
     ]
   },
   {
@@ -57,7 +57,7 @@ export const PLANOS_CARROS: Plano[] = [
       "Hospedagem em caso de colisão",
       "Pane seca",
       "Pane elétrica ou mecânica",
-      "Assistência 24h pelo 0800",
+      "Assistência 24h",
       "Fenômenos da natureza",
       "Carro reserva",
       "Moto reserva",
@@ -99,7 +99,7 @@ export const PLANOS_MOTOS: Plano[] = [
       "Reboque",
       "Pane seca",
       "Pane elétrica ou mecânica",
-      "Assistência 24h pelo 0800"
+      "Assistência 24h"
     ]
   }
 ];

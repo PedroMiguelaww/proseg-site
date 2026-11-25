@@ -15,22 +15,33 @@ app/
   quem-somos/             Sobre a empresa
   globals.css             Tailwind + cores da marca (tokens brand-*)
 components/
-  Header.tsx, Footer.tsx  Cabeçalho e rodapé
+  Header.tsx, Footer.tsx  Cabeçalho (menu do celular fecha com Esc) e rodapé
+  AnoAtual.tsx            Ano do rodapé (atualiza sozinho no navegador)
   Reveal.tsx              Animação de entrada ao rolar a página
   WhatsAppFloat.tsx       Botão flutuante de WhatsApp
   CtaWhatsApp.tsx         Bloco de chamada final para o WhatsApp
   IconCard.tsx            Card com ícone, título e texto
   PlanosTabs.tsx          Abas Carros | Motos (roda no navegador)
+  secoes/                 Seções de cada página: números, avaliações, tabela de
+                          planos, quiz, perguntas frequentes, celular do rastreador,
+                          linhas do tempo. "Exemplo.tsx" é a etiqueta amarela de
+                          dado ainda não confirmado
 lib/
-  site.ts                 Telefones, WhatsApp e links do menu
+  site.ts                 Telefones, WhatsApp, endereço, CNPJ e links do menu
   content.ts              Planos e vantagens do rastreador
+  institucional.ts        Números, avaliações do Google, história e perguntas frequentes
 public/images/            Imagens (WebP, exceto o logo)
+public/_headers           Cache dos arquivos do site (Cloudflare)
+next.config.ts            Cabeçalhos de segurança (CSP, HSTS etc.)
 ```
 
 ### Onde alterar
 
 - **Telefone / WhatsApp / menu:** `lib/site.ts`
-- **Planos e coberturas:** `lib/content.ts`
+- **Planos e coberturas:** `lib/content.ts` (as tabelas de comparação são montadas sozinhas a partir dele)
+- **Nota do Google, números, história, perguntas frequentes:** `lib/institucional.ts`
+- **Endereço, horário, CNPJ, redes sociais:** `lib/site.ts`
+- **Segurança do navegador (CSP):** `next.config.ts`. Se um dia entrar um serviço externo (mapa novo, chat, analytics), ele precisa ser liberado ali
 - **Cores da marca:** bloco `@theme` em `app/globals.css` (use as classes `bg-brand-blue`, `text-brand-accent` etc., nunca hex direto)
 
 ## Desenvolvimento

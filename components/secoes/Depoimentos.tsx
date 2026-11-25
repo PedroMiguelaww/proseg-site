@@ -1,5 +1,5 @@
 import { Star, Quote } from "lucide-react";
-import { DEPOIMENTOS, NOTA_GOOGLE } from "@/lib/demo";
+import { DEPOIMENTOS, NOTA_GOOGLE } from "@/lib/institucional";
 import { SITE } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 
@@ -81,7 +81,7 @@ export default function Depoimentos() {
             href={SITE.googleMaps}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-bold text-brand-dark underline underline-offset-4 hover:text-brand-blue"
+            className="inline-flex items-center gap-2 py-2 font-bold text-brand-dark underline underline-offset-4 hover:text-brand-blue"
           >
             Ver todas as avaliações no Google
           </a>

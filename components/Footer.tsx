@@ -5,13 +5,17 @@ import {
   Phone,
   MapPin,
   ShieldCheck,
-  Clock
+  Clock,
+  AtSign,
+  Users
 } from "lucide-react";
 import { SITE, NAV_LINKS, whatsappLink } from "@/lib/site";
+import AnoAtual from "@/components/AnoAtual";
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-blue text-white pt-16 pb-12 border-t border-brand-dark">
+    // pb-28 no celular: deixa espaço para o botão flutuante do WhatsApp não cobrir o texto final
+    <footer className="bg-brand-blue text-white pt-16 pb-28 md:pb-14 border-t border-brand-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Grid Principal do Footer */}
@@ -38,10 +42,10 @@ export default function Footer() {
           {/* Coluna 2: Links Rápidos */}
           <nav className="space-y-4" aria-label="Rodapé">
             <h3 className="text-lg font-bold text-white border-b border-brand-dark pb-2">Navegação</h3>
-            <ul className="space-y-2.5 text-sm text-gray-300">
+            <ul className="text-sm text-gray-300">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-brand-light transition-colors flex items-center gap-2">
+                  <Link href={link.href} className="hover:text-brand-light transition-colors flex items-center gap-2 py-2">
                     <span aria-hidden="true">›</span> {link.label}
                   </Link>
                 </li>
@@ -52,31 +56,49 @@ export default function Footer() {
           {/* Coluna 3: Contato */}
           <div className="space-y-4">
             <h3 className="text-lg font-bold text-white border-b border-brand-dark pb-2">Atendimento</h3>
-            <div className="space-y-3 text-sm text-gray-300">
-              <div className="flex items-start gap-3">
+            <div className="text-sm text-gray-300">
+              <div className="flex items-start gap-3 py-2">
                 <MapPin className="w-5 h-5 text-brand-light shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Campina Grande - PB</span>
+                <span>{SITE.endereco}, {SITE.cidade}</span>
               </div>
               <a
                 href={whatsappLink("Olá, vim pelo site da Proseg e gostaria de mais informações")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 hover:text-white transition-colors"
+                className="flex items-center gap-3 py-2 hover:text-white transition-colors"
               >
                 <PhoneCall className="w-5 h-5 text-brand-light shrink-0" aria-hidden="true" />
                 <span>WhatsApp: {SITE.whatsappDisplay}</span>
               </a>
               <a
                 href={`tel:${SITE.tollFree}`}
-                className="flex items-center gap-3 hover:text-white transition-colors"
+                className="flex items-center gap-3 py-2 hover:text-white transition-colors"
               >
                 <Phone className="w-5 h-5 text-brand-light shrink-0" aria-hidden="true" />
                 <span>{SITE.tollFreeDisplay}</span>
               </a>
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 py-2">
                 <Clock className="w-5 h-5 text-brand-light shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Suporte e assistência 24h</span>
               </div>
+              <a
+                href={SITE.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 py-2 hover:text-white transition-colors"
+              >
+                <AtSign className="w-5 h-5 text-brand-light shrink-0" aria-hidden="true" />
+                <span>Instagram: {SITE.instagramDisplay}</span>
+              </a>
+              <a
+                href={SITE.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 py-2 hover:text-white transition-colors"
+              >
+                <Users className="w-5 h-5 text-brand-light shrink-0" aria-hidden="true" />
+                <span>Facebook: Proseg Associados</span>
+              </a>
             </div>
           </div>
 
@@ -98,7 +120,7 @@ export default function Footer() {
 
         {/* Linha Inferior / Direitos Reservados */}
         <div className="border-t border-brand-dark pt-8 text-center text-xs text-gray-400">
-          <p>© {new Date().getFullYear()} Proseg. Todos os direitos reservados.</p>
+          <p>© <AnoAtual /> Proseg. Todos os direitos reservados.</p>
           <p className="mt-2">
             {SITE.razaoSocial} · CNPJ {SITE.cnpj} · {SITE.endereco}, {SITE.cidade}
           </p>

@@ -5,9 +5,9 @@ import { VANTAGENS_RASTREADOR } from "@/lib/content";
 import IconCard from "@/components/IconCard";
 import Reveal from "@/components/Reveal";
 import CtaWhatsApp from "@/components/CtaWhatsApp";
-import CelularMapa from "@/components/demo/CelularMapa";
-import LinhaVertical from "@/components/demo/LinhaVertical";
-import Exemplo from "@/components/demo/Exemplo";
+import CelularMapa from "@/components/secoes/CelularMapa";
+import LinhaVertical from "@/components/secoes/LinhaVertical";
+import Exemplo from "@/components/secoes/Exemplo";
 
 export const metadata: Metadata = {
   title: "Rastreador Veicular",

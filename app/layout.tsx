@@ -39,8 +39,14 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body className={`${montserrat.variable} antialiased min-h-screen flex flex-col`}>
+        <a
+          href="#conteudo"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-white focus:text-brand-blue focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
+        >
+          Pular para o conteúdo
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="conteudo" tabIndex={-1} className="flex-1 focus:outline-none">{children}</main>
         <Footer />
         <WhatsAppFloat />
       </body>

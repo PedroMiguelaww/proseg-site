@@ -6,9 +6,9 @@ import { VANTAGENS_RASTREADOR } from "@/lib/content";
 import bannerHero from "@/public/images/bannerHero.webp";
 import reboque from "@/public/images/reboque.webp";
 import celular from "@/public/images/celular.webp";
-import FaixaNumeros from "@/components/demo/FaixaNumeros";
-import PassosLinha from "@/components/demo/PassosLinha";
-import Depoimentos from "@/components/demo/Depoimentos";
+import FaixaNumeros from "@/components/secoes/FaixaNumeros";
+import PassosLinha from "@/components/secoes/PassosLinha";
+import Depoimentos from "@/components/secoes/Depoimentos";
 import {
   ShieldCheck,
   PhoneCall,
@@ -141,7 +141,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="mt-4 text-center px-2 pb-2">
-                  <h3 className="text-xl font-bold text-white mb-1">Proteção sem complicação</h3>
+                  <p className="text-xl font-bold text-white mb-1">Proteção sem complicação</p>
                   <p className="text-sm text-gray-300">Atendimento ágil e sem burocracia em Campina Grande - PB</p>
                 </div>
               </div>
@@ -322,9 +322,9 @@ export default function Home() {
                   <p className="text-sm text-gray-600 mb-5">
                     Acompanhe a rota, o histórico de trajetos e a localização em tempo real, na palma da sua mão.
                   </p>
-                  <div className="bg-brand-blue text-white py-3.5 px-4 rounded-xl font-bold text-xs tracking-wider shadow-md w-full text-center">
+                  <p className="border border-brand-blue/20 bg-brand-blue/5 text-brand-blue py-2.5 px-4 rounded-full font-bold text-xs tracking-wider w-full text-center">
                     MONITORAMENTO 24H
-                  </div>
+                  </p>
                 </div>
               </div>
             </Reveal>

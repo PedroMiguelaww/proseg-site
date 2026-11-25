@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import { PERGUNTAS } from "@/lib/demo";
+import { PERGUNTAS } from "@/lib/institucional";
 import Reveal from "@/components/Reveal";
 import Exemplo from "./Exemplo";
 

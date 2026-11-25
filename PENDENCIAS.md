@@ -15,6 +15,27 @@ Perguntas que dependem de alguém da Proseg. O site já está com textos seguros
 - [ ] **Percentual da FIPE por plano**: quanto cobrem o Prata e o Ouro? Hoje só o Diamante diz "Até 100% da FIPE".
   - Onde: home › frase do topo — `app/page.tsx`; cards dos planos — `lib/content.ts`
 
+## Apareceram na revisão de 24/11/2026
+
+- [ ] **Assistência 24h x Plano Prata (carro)**: o topo da home e a seção "Assistência 24h" prometem assistência "em todo o Brasil", mas o Prata não lista assistência. Dizer que é só do Ouro em diante, ou incluir no Prata?
+  - Onde: `app/page.tsx` (frase do topo e seção Assistência 24h), perguntas frequentes em `lib/institucional.ts`
+- [ ] **"Transporte emergencial"**: aparece na lista de assistências da home, mas não está em nenhum plano. Em qual plano vale?
+  - Onde: `app/page.tsx` (`ASSISTENCIAS`)
+- [ ] **0800 só no Header**: hoje o número também aparece no rodapé e no botão "Acionar assistência" da home. Manter ou deixar só no topo?
+  - Onde: `components/Footer.tsx`, `app/page.tsx`
+- [ ] **Endereço e horário**: Av. Almirante Barroso, 100 (Google e Receita) ou Av. Floriano Peixoto, 1649 (site antigo)? A filial de Cabedelo existe? Fecha às 17h (Google) ou 18h (site antigo)?
+  - Onde: `lib/site.ts`
+- [ ] **Avaliação do "Edson Junior"**: ele é funcionário da Proseg? Se for, trocar por outra avaliação.
+  - Onde: `lib/institucional.ts` (`DEPOIMENTOS`)
+- [ ] **Regra do quiz** "Qual plano é para mim?": qual plano indicar em cada resposta.
+  - Onde: `components/secoes/QuizPlano.tsx` (função `indicar`)
+- [ ] **História, equipe, missão, visão e valores**: textos, anos, fotos e nomes.
+  - Onde: `lib/institucional.ts` (`HISTORIA`), `app/quem-somos/page.tsx`
+- [ ] **Perguntas frequentes sem resposta**: quando a proteção começa a valer e se dá para trocar de plano.
+  - Onde: `lib/institucional.ts` (`PERGUNTAS`)
+- [ ] **Política de privacidade**: o mapa do Google em Quem Somos carrega cookies do Google. É boa prática (LGPD) ter uma página de privacidade com a razão social, o contato e o que o site coleta (hoje: nada). Precisa do texto aprovado pela empresa.
+- [ ] **Domínio**: sem ele não dá para criar `sitemap.xml`, link canônico e imagem de compartilhamento.
+
 ## Conteúdo que pode ser acrescentado
 
 - [ ] **Produtos adicionais**: existem extras contratados à parte? Se sim, voltar a citar no passo 2 da home e, se quiser, listá-los.

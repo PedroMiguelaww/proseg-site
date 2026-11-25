@@ -24,7 +24,6 @@ export default function PlanosTabs({
 }) {
   const [activeTab, setActiveTab] = useState<Tab>("carros");
   const planosAtuais = activeTab === "carros" ? PLANOS_CARROS : PLANOS_MOTOS;
-  const whatsappUrl = whatsappLink("Olá, vim pelo site da Proseg e gostaria de ver os planos");
 
   return (
     <>
@@ -112,7 +111,7 @@ export default function PlanosTabs({
 
                 <div className="pt-8">
                   <a
-                    href={whatsappUrl}
+                    href={whatsappLink(`Olá, vim pelo site da Proseg e gostaria de contratar o ${plano.nome}`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`block w-full py-4 rounded-xl font-bold text-center text-sm shadow-md transition-all duration-300 ${

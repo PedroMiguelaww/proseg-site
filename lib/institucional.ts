@@ -1,4 +1,4 @@
-// Conteúdo das seções novas (protótipo da nova estrutura).
+// Conteúdo das seções institucionais (números, avaliações, história, perguntas).
 // Fontes, conferidas em 05/11/2026:
 //  - Google Maps: ficha "Proseg Proteção - Campina Grande" (nota, avaliações, horário, endereço)
 //  - Receita Federal (CNPJ 31.455.851/0001-52): início das atividades em 18/06/2018

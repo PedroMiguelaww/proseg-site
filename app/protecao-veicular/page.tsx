@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { ShieldCheck } from "lucide-react";
 import PlanosTabs from "@/components/PlanosTabs";
 import CtaWhatsApp from "@/components/CtaWhatsApp";
-import TabelaPlanos from "@/components/demo/TabelaPlanos";
-import QuizPlano from "@/components/demo/QuizPlano";
-import Perguntas from "@/components/demo/Perguntas";
+import TabelaPlanos from "@/components/secoes/TabelaPlanos";
+import QuizPlano from "@/components/secoes/QuizPlano";
+import Perguntas from "@/components/secoes/Perguntas";
 
 export const metadata: Metadata = {
   title: "Planos de Proteção Veicular para Carros e Motos",

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Users, MapPin, Target, Eye, Gem, CheckCircle2, Clock, UserRound, AtSign, Phone } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CtaWhatsApp from "@/components/CtaWhatsApp";
-import LinhaVertical from "@/components/demo/LinhaVertical";
-import Exemplo from "@/components/demo/Exemplo";
-import { HISTORIA } from "@/lib/demo";
+import LinhaVertical from "@/components/secoes/LinhaVertical";
+import Exemplo from "@/components/secoes/Exemplo";
+import { HISTORIA } from "@/lib/institucional";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {

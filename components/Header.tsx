@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -10,11 +10,31 @@ import { SITE, NAV_LINKS as navLinks, whatsappLink } from "@/lib/site";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
 
   const whatsappUrl = whatsappLink("Olá, vim pelo site da Proseg e gostaria de mais informações");
 
+  // Com o menu aberto: Esc ou um toque fora do cabeçalho fecham o menu
+  useEffect(() => {
+    if (!isOpen) return;
+
+    function aoApertarTecla(e: KeyboardEvent) {
+      if (e.key === "Escape") setIsOpen(false);
+    }
+    function aoTocarFora(e: PointerEvent) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) setIsOpen(false);
+    }
+
+    document.addEventListener("keydown", aoApertarTecla);
+    document.addEventListener("pointerdown", aoTocarFora);
+    return () => {
+      document.removeEventListener("keydown", aoApertarTecla);
+      document.removeEventListener("pointerdown", aoTocarFora);
+    };
+  }, [isOpen]);
+
   return (
-    <header className="bg-brand-blue text-white sticky top-0 z-50 border-b border-brand-dark shadow-md">
+    <header ref={headerRef} className="bg-brand-blue text-white sticky top-0 z-50 border-b border-brand-dark shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
 
@@ -32,16 +52,16 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Menu Desktop */}
-          <nav className="hidden md:flex items-center space-x-8 font-medium text-sm" aria-label="Principal">
+          {/* Menu Desktop (a partir de 1024 px; em tablet usa o menu do celular) */}
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 font-medium text-sm" aria-label="Principal">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 aria-current={pathname === link.href ? "page" : undefined}
-                className={`transition-colors ${
+                className={`whitespace-nowrap py-2 transition-colors ${
                   pathname === link.href
-                    ? "text-white font-semibold border-b-2 border-brand-accent pb-1"
+                    ? "text-white font-semibold border-b-2 border-brand-accent"
                     : "text-gray-200 hover:text-brand-light"
                 }`}
               >
@@ -51,10 +71,10 @@ export default function Header() {
           </nav>
 
           {/* Contatos Desktop: 0800 + WhatsApp */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <a
               href={`tel:${SITE.tollFree}`}
-              className="flex items-center gap-2 text-sm font-semibold text-gray-200 hover:text-white transition-colors"
+              className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-gray-200 hover:text-white transition-colors"
             >
               <Phone className="w-4 h-4" aria-hidden="true" />
               <span>{SITE.tollFreeDisplay}</span>
@@ -70,15 +90,24 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Botão do Menu Mobile */}
-          <div className="flex md:hidden">
+          {/* Celular e tablet: ligar para a assistência (ícone) + botão do menu */}
+          <div className="flex lg:hidden items-center gap-2">
+            <a
+              href={`tel:${SITE.tollFree}`}
+              aria-label={`Ligar para a assistência 24h: ${SITE.tollFreeDisplay}`}
+              className="p-2.5 rounded-xl bg-brand-dark text-white hover:bg-brand-dark/80 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              <Phone className="w-6 h-6" aria-hidden="true" />
+            </a>
             <button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
               aria-expanded={isOpen}
-              className="p-2 rounded-xl bg-brand-dark text-white hover:bg-brand-dark/80 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              aria-controls="menu-mobile"
+              className="p-2.5 rounded-xl bg-brand-dark text-white hover:bg-brand-dark/80 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
             </button>
           </div>
 
@@ -87,14 +116,14 @@ export default function Header() {
 
       {/* Menu Mobile */}
       {isOpen && (
-        <div className="md:hidden bg-brand-blue border-t border-brand-dark px-4 pt-2 pb-6 space-y-2">
+        <div id="menu-mobile" className="lg:hidden bg-brand-blue border-t border-brand-dark px-4 pt-2 pb-5 space-y-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
               aria-current={pathname === link.href ? "page" : undefined}
-              className={`block px-3 py-2 rounded-lg text-base font-medium ${
+              className={`block px-3 py-3 rounded-lg text-base font-medium ${
                 pathname === link.href
                   ? "bg-brand-dark text-white"
                   : "text-gray-200 hover:bg-brand-dark"
@@ -107,7 +136,7 @@ export default function Header() {
           <div className="pt-3 grid grid-cols-2 gap-3">
             <a
               href={`tel:${SITE.tollFree}`}
-              className="flex items-center justify-center gap-2 border border-white/20 text-white py-3 rounded-xl font-semibold text-sm"
+              className="flex items-center justify-center gap-2 whitespace-nowrap border border-white/20 text-white py-3 rounded-xl font-semibold text-sm"
             >
               <Phone className="w-4 h-4" aria-hidden="true" />
               <span>{SITE.tollFreeDisplay}</span>
